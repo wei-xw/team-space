@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Space - 本地配置</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><div class="logo-icon">T</div><div><div class="logo-text">Team Space</div><div class="logo-sub">AI 协作平台</div></div></div>
+    <nav class="sidebar-nav">
+      <div class="nav-section"><div class="nav-section-title">概览</div><a class="nav-item" href="dashboard.html"><span class="nav-icon">📊</span> 仪表盘</a></div>
+      <div class="nav-section">
+        <div class="nav-section-title">知识资产</div>
+        <a class="nav-item" href="knowledge.html"><span class="nav-icon">📚</span> 知识库<span class="nav-badge">32</span></a>
+        <a class="nav-item" href="skills.html"><span class="nav-icon">⚡</span> 技能<span class="nav-badge">18</span></a>
+        <a class="nav-item" href="tools.html"><span class="nav-icon">🔧</span> 工具</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">对话分析</div><a class="nav-item" href="conversations.html"><span class="nav-icon">💬</span> 对话记录</a><a class="nav-item" href="analytics.html"><span class="nav-icon">🏆</span> 优秀对话<span class="nav-badge">3</span></a></div>
+      <div class="nav-section"><div class="nav-section-title">AI 优化</div><a class="nav-item" href="optimization.html"><span class="nav-icon">🤖</span> 优化提案<span class="nav-badge">2</span></a><a class="nav-item" href="audit-log.html"><span class="nav-icon">📋</span> 审计日志</a></div>
+      <div class="nav-section"><div class="nav-section-title">设置</div><a class="nav-item active" href="local-config.html"><span class="nav-icon">⚙️</span> 本地配置</a><a class="nav-item" href="settings.html"><span class="nav-icon">🏷️</span> 标签管理</a></div>
+    </nav>
+    <div class="sidebar-footer"><div class="avatar" style="background:#6366F1">张</div><div class="user-info"><div class="user-name">张三</div><div class="user-role">后端工程师</div></div></div>
+  </aside>
+
+  <main class="main-content">
+    <div class="page-header">
+      <div>
+        <h1>⚙️ 本地配置管理</h1>
+        <div class="subtitle">敏感信息仅存储在本地 · 团队空间只定义 Schema，不收集密钥</div>
+      </div>
+      <div class="header-actions">
+        <button class="btn">📋 查看 Schema 定义</button>
+        <button class="btn btn-primary">＋ 添加配置项</button>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <!-- Security Notice -->
+      <div style="background:var(--info-light);border:1px solid #BFDBFE;border-radius:var(--radius-lg);padding:16px 20px;margin-bottom:24px;display:flex;gap:12px;align-items:flex-start">
+        <span style="font-size:24px;flex-shrink:0">🔐</span>
+        <div style="font-size:13px;line-height:1.7;color:var(--gray-700)">
+          <strong>安全说明：</strong>本地配置存储在 <code>~/.team-space/local-config.yaml</code>，<strong>绝不会上传到团队空间</strong>。
+          团队空间仅保存配置的 Schema（字段名、类型、描述），用于指导成员填写。
+          <code>secret</code> 类型的配置会使用 macOS Keychain 加密存储，在日志和 UI 中仅显示 <code>****</code>。
+        </div>
+      </div>
+
+      <!-- Status Cards -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">总配置项</div>
+          <div class="stat-value">8</div>
+          <div class="stat-change">Schema 定义数</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">已配置</div>
+          <div class="stat-value" style="color:var(--success)">7</div>
+          <div class="stat-change up">87.5% 完成率</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">必填未填</div>
+          <div class="stat-value" style="color:var(--warning)">1</div>
+          <div class="stat-change" style="color:var(--warning)">⚠️ 影响 1 个工具</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">配置文件路径</div>
+          <div class="stat-value" style="font-size:13px;font-family:var(--font-mono);color:var(--gray-600)">~/.team-space/<br>local-config.yaml</div>
+          <div class="stat-change"><a href="#" style="color:var(--primary);font-size:12px">在编辑器中打开 →</a></div>
+        </div>
+      </div>
+
+      <!-- Config List -->
+      <div class="card" style="margin-bottom:24px">
+        <div class="card-header">
+          <h3>📝 我的本地配置</h3>
+          <div style="display:flex;gap:8px">
+            <button class="btn btn-sm">🔄 同步 Schema</button>
+            <button class="btn btn-sm">📥 导出（脱敏）</button>
+          </div>
+        </div>
+        <div class="card-body-compact">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:22%">配置项</th>
+                <th style="width:12%">类型</th>
+                <th style="width:8%">必填</th>
+                <th>描述</th>
+                <th style="width:18%">当前值</th>
+                <th style="width:12%">引用者</th>
+                <th style="width:10%">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <code style="font-size:12px;font-weight:600">openai_api_key</code>
+                </td>
+                <td><span class="tag tag-danger">🔑 secret</span></td>
+                <td><span class="tag tag-danger">必填</span></td>
+                <td>
+                  <div class="cell-main">OpenAI API Key</div>
+                  <div class="cell-sub">从 <a href="#" style="color:var(--primary)">platform.openai.com</a> 获取</div>
+                </td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:6px">
+                    <span style="font-family:var(--font-mono);font-size:12px;color:var(--gray-400)">sk-••••••••3xF7</span>
+                    <span style="color:var(--success)">✓</span>
+                  </div>
+                </td>
+                <td>
+                  <span style="font-size:12px;color:var(--gray-500)">3 个 Skill</span>
+                </td>
+                <td>
+                  <button class="btn btn-sm">编辑</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code style="font-size:12px;font-weight:600">db_readonly_url</code>
+                </td>
+                <td><span class="tag tag-gray">📝 string</span></td>
+                <td><span class="tag tag-gray">可选</span></td>
+                <td>
+                  <div class="cell-main">只读数据库连接字符串</div>
+                  <div class="cell-sub">格式: postgresql://user:pass@host:5432/dbname</div>
+                </td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:6px">
+                    <span style="font-family:var(--font-mono);font-size:12px;color:var(--gray-600)">postgresql://zhangsan:***@10.0.0.1:5432/oa</span>
+                    <span style="color:var(--success)">✓</span>
+                  </div>
+                </td>
+                <td>
+                  <span style="font-size:12px;color:var(--gray-500)">1 个 Tool</span>
+                </td>
+                <td>
+                  <button class="btn btn-sm">编辑</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code style="font-size:12px;font-weight:600">gitlab_token</code>
+                </td>
+                <td><span class="tag tag-danger">🔑 secret</span></td>
+                <td><span class="tag tag-danger">必填</span></td>
+                <td>
+                  <div class="cell-main">GitLab Personal Access Token</div>
+                  <div class="cell-sub">需要 read_repository 权限</div>
+                </td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:6px">
+                    <span style="font-family:var(--font-mono);font-size:12px;color:var(--gray-400)">glpat-••••••••k9P2</span>
+                    <span style="color:var(--success)">✓</span>
+                  </div>
+                </td>
+                <td>
+                  <span style="font-size:12px;color:var(--gray-500)">1 个 Tool</span>
+                </td>
+                <td>
+                  <button class="btn btn-sm">编辑</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code style="font-size:12px;font-weight:600">jira_api_token</code>
+                </td>
+                <td><span class="tag tag-danger">🔑 secret</span></td>
+                <td><span class="tag tag-gray">可选</span></td>
+                <td>
+                  <div class="cell-main">Jira API Token</div>
+                  <div class="cell-sub">用于创建和更新 Jira Issue</div>
+                </td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:6px">
+                    <span style="font-family:var(--font-mono);font-size:12px;color:var(--gray-400)">ATATT••••••••x4Bz</span>
+                    <span style="color:var(--success)">✓</span>
+                  </div>
+                </td>
+                <td>
+                  <span style="font-size:12px;color:var(--gray-500)">1 个 Tool</span>
+                </td>
+                <td>
+                  <button class="btn btn-sm">编辑</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code style="font-size:12px;font-weight:600">internal_api_key</code>
+                </td>
+                <td><span class="tag tag-danger">🔑 secret</span></td>
+                <td><span class="tag tag-gray">可选</span></td>
+                <td>
+                  <div class="cell-main">内部 API 访问密钥</div>
+                  <div class="cell-sub">从内部平台个人中心获取</div>
+                </td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:6px">
+                    <span style="font-family:var(--font-mono);font-size:12px;color:var(--gray-400)">iak_••••••••m7Qw</span>
+                    <span style="color:var(--success)">✓</span>
+                  </div>
+                </td>
+                <td>
+                  <span style="font-size:12px;color:var(--gray-500)">1 个 Tool</span>
+                </td>
+                <td>
+                  <button class="btn btn-sm">编辑</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code style="font-size:12px;font-weight:600">local_workspace</code>
+                </td>
+                <td><span class="tag tag-gray">📁 path</span></td>
+                <td><span class="tag tag-gray">可选</span></td>
+                <td>
+                  <div class="cell-main">本地工作目录路径</div>
+                  <div class="cell-sub">默认: ~/workspace</div>
+                </td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:6px">
+                    <span style="font-family:var(--font-mono);font-size:12px;color:var(--gray-600)">/Users/zhangsan/workspace</span>
+                    <span style="color:var(--success)">✓</span>
+                  </div>
+                </td>
+                <td>
+                  <span style="font-size:12px;color:var(--gray-500)">—</span>
+                </td>
+                <td>
+                  <button class="btn btn-sm">编辑</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code style="font-size:12px;font-weight:600">anthropic_api_key</code>
+                </td>
+                <td><span class="tag tag-danger">🔑 secret</span></td>
+                <td><span class="tag tag-gray">可选</span></td>
+                <td>
+                  <div class="cell-main">Anthropic API Key</div>
+                  <div class="cell-sub">用于 Claude 模型调用</div>
+                </td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:6px">
+                    <span style="font-family:var(--font-mono);font-size:12px;color:var(--gray-400)">sk-ant-••••••••p2Lx</span>
+                    <span style="color:var(--success)">✓</span>
+                  </div>
+                </td>
+                <td>
+                  <span style="font-size:12px;color:var(--gray-500)">2 个 Skill</span>
+                </td>
+                <td>
+                  <button class="btn btn-sm">编辑</button>
+                </td>
+              </tr>
+              <!-- Missing required config -->
+              <tr style="background:var(--danger-light)">
+                <td>
+                  <code style="font-size:12px;font-weight:600;color:var(--danger)">deploy_token</code>
+                </td>
+                <td><span class="tag tag-danger">🔑 secret</span></td>
+                <td><span class="tag tag-danger">必填</span></td>
+                <td>
+                  <div class="cell-main" style="color:var(--danger)">⚠️ 部署 Token 未配置</div>
+                  <div class="cell-sub">从 CI/CD 平台获取，用于触发部署流水线</div>
+                </td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:6px">
+                    <span style="font-size:12px;color:var(--danger);font-weight:600">未配置</span>
+                    <span style="color:var(--danger)">✗</span>
+                  </div>
+                </td>
+                <td>
+                  <span style="font-size:12px;color:var(--danger)">1 个 Tool<br><span style="font-size:10px">deploy-trigger 🔴</span></span>
+                </td>
+                <td>
+                  <button class="btn btn-sm btn-primary">配置</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Schema Definition Preview -->
+      <div class="card">
+        <div class="card-header">
+          <h3>📐 Schema 定义预览（团队共享）</h3>
+          <span class="tag tag-gray">存储于团队空间 · 不含敏感值</span>
+        </div>
+        <div class="card-body">
+          <div class="diff-block">
+            <div class="diff-header">~/.team-space/schema/local-config-schema.yaml (团队空间维护)</div>
+            <div class="diff-line context">configs:</div>
+            <div class="diff-line context">  - key: openai_api_key</div>
+            <div class="diff-line context">    type: secret</div>
+            <div class="diff-line context">    description: OpenAI API Key，用于调用 GPT 系列模型</div>
+            <div class="diff-line context">    required: true</div>
+            <div class="diff-line context">    hint: "从 https://platform.openai.com/api-keys 获取"</div>
+            <div class="diff-line context"></div>
+            <div class="diff-line context">  - key: db_readonly_url</div>
+            <div class="diff-line context">    type: string</div>
+            <div class="diff-line context">    description: 只读数据库连接字符串</div>
+            <div class="diff-line context">    required: false</div>
+            <div class="diff-line context">    hint: "格式: postgresql://user:pass@host:5432/dbname"</div>
+            <div class="diff-line context"></div>
+            <div class="diff-line context">  - key: gitlab_token</div>
+            <div class="diff-line context">    type: secret</div>
+            <div class="diff-line context">    description: GitLab Personal Access Token</div>
+            <div class="diff-line context">    required: true</div>
+            <div class="diff-line context"></div>
+            <div class="diff-line context">  # ... 更多配置项</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Flow Diagram -->
+      <div class="card" style="margin-top:24px">
+        <div class="card-header">
+          <h3>🔄 配置读取流程</h3>
+        </div>
+        <div class="card-body">
+          <div style="display:flex;align-items:center;gap:16px;justify-content:center;padding:20px 0">
+            <div style="text-align:center;padding:16px;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius-lg);width:160px">
+              <div style="font-size:24px;margin-bottom:8px">💻</div>
+              <div style="font-size:12px;font-weight:600">AI 工具</div>
+              <div style="font-size:11px;color:var(--gray-500)">发起请求</div>
+            </div>
+            <div style="font-size:20px;color:var(--gray-400)">→</div>
+            <div style="text-align:center;padding:16px;background:var(--primary-light);border:1px solid #C7D2FE;border-radius:var(--radius-lg);width:160px">
+              <div style="font-size:24px;margin-bottom:8px">🔗</div>
+              <div style="font-size:12px;font-weight:600">Skill/Tool</div>
+              <div style="font-size:11px;color:var(--gray-500)">引用 <code style="font-size:10px">{{local_config:key}}</code></div>
+            </div>
+            <div style="font-size:20px;color:var(--gray-400)">→</div>
+            <div style="text-align:center;padding:16px;background:var(--warning-light);border:1px solid #FDE68A;border-radius:var(--radius-lg);width:160px">
+              <div style="font-size:24px;margin-bottom:8px">🔐</div>
+              <div style="font-size:12px;font-weight:600">Runtime</div>
+              <div style="font-size:11px;color:var(--gray-500)">读取本地配置</div>
+            </div>
+            <div style="font-size:20px;color:var(--gray-400)">→</div>
+            <div style="text-align:center;padding:16px;background:var(--success-light);border:1px solid #BBF7D0;border-radius:var(--radius-lg);width:160px">
+              <div style="font-size:24px;margin-bottom:8px">✅</div>
+              <div style="font-size:12px;font-weight:600">注入实际值</div>
+              <div style="font-size:11px;color:var(--gray-500)">继续执行</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

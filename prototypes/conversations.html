@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Space - 对话记录</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><div class="logo-icon">T</div><div><div class="logo-text">Team Space</div><div class="logo-sub">AI 协作平台</div></div></div>
+    <nav class="sidebar-nav">
+      <div class="nav-section"><div class="nav-section-title">概览</div><a class="nav-item" href="dashboard.html"><span class="nav-icon">📊</span> 仪表盘</a></div>
+      <div class="nav-section">
+        <div class="nav-section-title">知识资产</div>
+        <a class="nav-item" href="knowledge.html"><span class="nav-icon">📚</span> 知识库<span class="nav-badge">32</span></a>
+        <a class="nav-item" href="skills.html"><span class="nav-icon">⚡</span> 技能<span class="nav-badge">18</span></a>
+        <a class="nav-item" href="tools.html"><span class="nav-icon">🔧</span> 工具</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">对话分析</div><a class="nav-item active" href="conversations.html"><span class="nav-icon">💬</span> 对话记录</a><a class="nav-item" href="analytics.html"><span class="nav-icon">🏆</span> 优秀对话<span class="nav-badge">3</span></a></div>
+      <div class="nav-section"><div class="nav-section-title">AI 优化</div><a class="nav-item" href="optimization.html"><span class="nav-icon">🤖</span> 优化提案<span class="nav-badge">2</span></a><a class="nav-item" href="audit-log.html"><span class="nav-icon">📋</span> 审计日志</a></div>
+      <div class="nav-section"><div class="nav-section-title">设置</div><a class="nav-item" href="local-config.html"><span class="nav-icon">⚙️</span> 本地配置</a><a class="nav-item" href="settings.html"><span class="nav-icon">🏷️</span> 标签管理</a></div>
+    </nav>
+    <div class="sidebar-footer"><div class="avatar" style="background:#6366F1">张</div><div class="user-info"><div class="user-name">张三</div><div class="user-role">后端工程师</div></div></div>
+  </aside>
+
+  <main class="main-content">
+    <div class="page-header">
+      <div>
+        <h1>💬 对话记录</h1>
+        <div class="subtitle">采集自团队成员的 Cursor / Codex / Claude Code 对话 · 今日 127 条</div>
+      </div>
+      <div class="header-actions">
+        <div class="search-box"><span>🔍</span><input type="text" placeholder="搜索对话内容..."></div>
+        <button class="btn">📥 导出 CSV</button>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <!-- Filter -->
+      <div class="filter-bar">
+        <span style="font-size:12px;color:var(--gray-500);font-weight:600;margin-right:4px">IDE：</span>
+        <span class="filter-chip active">全部</span>
+        <span class="filter-chip">Cursor</span>
+        <span class="filter-chip">Codex</span>
+        <span class="filter-chip">Claude Code</span>
+        <span style="font-size:12px;color:var(--gray-500);font-weight:600;margin-left:12px;margin-right:4px">成员：</span>
+        <span class="filter-chip">张三</span>
+        <span class="filter-chip">李四</span>
+        <span class="filter-chip">王五</span>
+        <span style="font-size:12px;color:var(--gray-500);font-weight:600;margin-left:12px;margin-right:4px">评分：</span>
+        <span class="filter-chip">🏆 优秀 (≥0.75)</span>
+        <span class="filter-chip">⭐ 精选 (≥0.90)</span>
+      </div>
+
+      <!-- Conversation List (Split View) -->
+      <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:16px;height:calc(100vh - 260px)">
+        <!-- Left: Conversation List -->
+        <div class="card" style="overflow-y:auto">
+          <div class="card-body-compact">
+            <!-- Selected conversation -->
+            <div style="padding:12px 16px;background:var(--primary-light);border-bottom:1px solid var(--gray-200);cursor:pointer;border-left:3px solid var(--primary)">
+              <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:4px">
+                <div style="display:flex;align-items:center;gap:6px">
+                  <div class="avatar-sm" style="background:#6366F1">张</div>
+                  <span style="font-size:13px;font-weight:500">张三</span>
+                  <span class="tag tag-gray" style="font-size:10px">Cursor</span>
+                </div>
+                <div class="score-badge score-excellent" style="width:32px;height:32px;font-size:11px">0.92</div>
+              </div>
+              <div style="font-size:13px;font-weight:600;color:var(--gray-800);margin-bottom:4px">用 Claude Code 重构用户权限模块</div>
+              <div style="display:flex;gap:8px;align-items:center;font-size:11px;color:var(--gray-500)">
+                <span>🕐 14:20</span>
+                <span>💬 12 轮</span>
+                <span class="tag tag-business" style="font-size:10px">OA</span>
+                <span class="tag tag-phase" style="font-size:10px">开发</span>
+                <span>🏆 精选</span>
+              </div>
+            </div>
+            <!-- Other conversations -->
+            <div style="padding:12px 16px;border-bottom:1px solid var(--gray-100);cursor:pointer">
+              <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:4px">
+                <div style="display:flex;align-items:center;gap:6px">
+                  <div class="avatar-sm" style="background:#F59E0B">李</div>
+                  <span style="font-size:13px;font-weight:500">李四</span>
+                  <span class="tag tag-gray" style="font-size:10px">Claude Code</span>
+                </div>
+                <div class="score-badge score-good" style="width:32px;height:32px;font-size:11px">0.81</div>
+              </div>
+              <div style="font-size:13px;font-weight:500;color:var(--gray-800);margin-bottom:4px">生成 CRM 数据迁移方案</div>
+              <div style="display:flex;gap:8px;align-items:center;font-size:11px;color:var(--gray-500)">
+                <span>🕐 11:35</span>
+                <span>💬 8 轮</span>
+                <span class="tag tag-business" style="font-size:10px">CRM</span>
+              </div>
+            </div>
+            <div style="padding:12px 16px;border-bottom:1px solid var(--gray-100);cursor:pointer">
+              <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:4px">
+                <div style="display:flex;align-items:center;gap:6px">
+                  <div class="avatar-sm" style="background:#10B981">王</div>
+                  <span style="font-size:13px;font-weight:500">王五</span>
+                  <span class="tag tag-gray" style="font-size:10px">Codex</span>
+                </div>
+                <div class="score-badge score-good" style="width:32px;height:32px;font-size:11px">0.78</div>
+              </div>
+              <div style="font-size:13px;font-weight:500;color:var(--gray-800);margin-bottom:4px">自动生成接口测试用例</div>
+              <div style="display:flex;gap:8px;align-items:center;font-size:11px;color:var(--gray-500)">
+                <span>🕐 10:15</span>
+                <span>💬 6 轮</span>
+                <span class="tag tag-business" style="font-size:10px">OA</span>
+                <span class="tag tag-phase" style="font-size:10px">测试</span>
+              </div>
+            </div>
+            <div style="padding:12px 16px;border-bottom:1px solid var(--gray-100);cursor:pointer">
+              <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:4px">
+                <div style="display:flex;align-items:center;gap:6px">
+                  <div class="avatar-sm" style="background:#8B5CF6">孙</div>
+                  <span style="font-size:13px;font-weight:500">孙七</span>
+                  <span class="tag tag-gray" style="font-size:10px">Cursor</span>
+                </div>
+                <div class="score-badge score-fair" style="width:32px;height:32px;font-size:11px">0.65</div>
+              </div>
+              <div style="font-size:13px;font-weight:500;color:var(--gray-800);margin-bottom:4px">调试消息队列消费异常</div>
+              <div style="display:flex;gap:8px;align-items:center;font-size:11px;color:var(--gray-500)">
+                <span>🕐 09:40</span>
+                <span>💬 15 轮</span>
+              </div>
+            </div>
+            <div style="padding:12px 16px;border-bottom:1px solid var(--gray-100);cursor:pointer">
+              <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:4px">
+                <div style="display:flex;align-items:center;gap:6px">
+                  <div class="avatar-sm" style="background:#EF4444">赵</div>
+                  <span style="font-size:13px;font-weight:500">赵六</span>
+                  <span class="tag tag-gray" style="font-size:10px">Codex</span>
+                </div>
+                <div class="score-badge score-fair" style="width:32px;height:32px;font-size:11px">0.52</div>
+              </div>
+              <div style="font-size:13px;font-weight:500;color:var(--gray-800);margin-bottom:4px">查询 OA 请假统计数据</div>
+              <div style="display:flex;gap:8px;align-items:center;font-size:11px;color:var(--gray-500)">
+                <span>🕐 09:10</span>
+                <span>💬 3 轮</span>
+                <span class="tag tag-business" style="font-size:10px">OA</span>
+              </div>
+            </div>
+            <div style="padding:12px 16px;border-bottom:1px solid var(--gray-100);cursor:pointer;opacity:0.5">
+              <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:4px">
+                <div style="display:flex;align-items:center;gap:6px">
+                  <div class="avatar-sm" style="background:#6366F1">张</div>
+                  <span style="font-size:13px;font-weight:500">张三</span>
+                  <span class="tag tag-gray" style="font-size:10px">Cursor</span>
+                </div>
+                <span class="tag tag-gray" style="font-size:10px">🔒 私有</span>
+              </div>
+              <div style="font-size:13px;font-weight:500;color:var(--gray-500);margin-bottom:4px">[标记为私有的对话]</div>
+              <div style="display:flex;gap:8px;align-items:center;font-size:11px;color:var(--gray-400)">
+                <span>🕐 08:30</span>
+                <span>💬 4 轮</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Conversation Detail -->
+        <div class="card" style="overflow-y:auto">
+          <div class="card-header">
+            <div>
+              <h3>用 Claude Code 重构用户权限模块</h3>
+              <div style="font-size:12px;color:var(--gray-500);margin-top:2px">张三 · Cursor · 2026-06-04 14:20 · 12 轮对话</div>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center">
+              <div class="score-badge score-excellent">0.92</div>
+              <span class="tag tag-success">精选</span>
+              <button class="btn btn-sm">🔗 分享</button>
+            </div>
+          </div>
+          <div class="card-body" style="max-height:500px;overflow-y:auto">
+            <!-- AI Analysis -->
+            <div style="background:var(--info-light);border:1px solid #BFDBFE;border-radius:var(--radius);padding:12px;margin-bottom:16px;font-size:12.5px">
+              <div style="font-weight:600;color:var(--info);margin-bottom:4px">🤖 AI 分析摘要</div>
+              <div style="color:var(--gray-700);line-height:1.7">
+                这是一次高质量的渐进式 prompt 交互。张三通过清晰的分步引导，让 AI 完成了 RBAC 权限模型的重构。亮点包括：
+                <br>• <strong>问题质量 4.5</strong> — 提供了完整业务上下文和约束条件
+                <br>• <strong>回答质量 4.8</strong> — 产出代码直接可用，包含完整测试
+                <br>• <strong>可复用性 4.6</strong> — 渐进式 prompt 模式值得推广
+              </div>
+            </div>
+
+            <!-- Chat Messages -->
+            <div class="chat-msg">
+              <div class="chat-avatar user">张</div>
+              <div class="chat-bubble">
+                我需要重构用户权限模块。当前使用的是简单的 role 字段（admin/editor/viewer），需要改为 RBAC 模型。
+                <br><br>
+                <strong>业务约束：</strong>
+                <br>1. 需要支持 OA、CRM、招聘三个系统的权限隔离
+                <br>2. 角色可以自定义，但默认提供 5 个预设角色
+                <br>3. 权限粒度到菜单+按钮级别
+                <br>4. 需要考虑向后兼容，现有用户数据需要迁移
+                <br><br>
+                请先帮我设计数据模型，再给出迁移方案。
+              </div>
+            </div>
+
+            <div class="chat-msg">
+              <div class="chat-avatar ai">AI</div>
+              <div class="chat-bubble">
+                好的，根据你的业务约束，我来设计 RBAC 数据模型。
+                <br><br>
+                <strong>核心设计思路：</strong>
+                <br>采用 RBAC + 系统域隔离的混合模型，通过 <code>system_domain</code> 字段实现 OA/CRM/招聘的权限隔离。
+                <br><br>
+                <pre>-- 角色表
+CREATE TABLE roles (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  system_domain VARCHAR(20) NOT NULL,  -- 'oa' | 'crm' | 'recruit'
+  description TEXT,
+  is_preset BOOLEAN DEFAULT false,
+  created_at TIMESTAMPTZ DEFAULT now()
+);
+
+-- 权限表
+CREATE TABLE permissions (
+  id SERIAL PRIMARY KEY,
+  resource VARCHAR(100) NOT NULL,  -- e.g. 'menu:approval'
+  action VARCHAR(20) NOT NULL,     -- 'view' | 'create' | 'edit' | 'delete'
+  system_domain VARCHAR(20) NOT NULL
+);
+
+-- 角色-权限关联
+CREATE TABLE role_permissions (
+  role_id INT REFERENCES roles(id),
+  permission_id INT REFERENCES permissions(id),
+  PRIMARY KEY (role_id, permission_id)
+);</pre>
+                <strong>5 个预设角色：</strong>
+                <br>1. 超级管理员（跨系统）
+                <br>2. 系统管理员（单系统）
+                <br>3. 部门主管（部门范围）
+                <br>4. 普通员工（个人范围）
+                <br>5. 访客（只读）
+                <br><br>
+                接下来我给出具体的数据迁移方案...
+              </div>
+            </div>
+
+            <div class="chat-msg">
+              <div class="chat-avatar user">张</div>
+              <div class="chat-bubble">
+                这个模型不错。有几个补充：
+                <br>1. 部门主管需要能管理子部门的权限
+                <br>2. 需要一个「权限审批」流程，角色变更需要上级审批
+                <br>3. 请同时生成 migration 脚本和单元测试
+              </div>
+            </div>
+
+            <div class="chat-msg">
+              <div class="chat-avatar ai">AI</div>
+              <div class="chat-bubble">
+                好的，我来补充这三点：
+                <br><br>
+                <strong>1. 部门层级权限：</strong>
+                <br>在 roles 表增加 <code>scope_type</code> 字段...
+                <br><br>
+                <pre>-- 新增 scope 相关字段
+ALTER TABLE roles ADD COLUMN scope_type VARCHAR(20) DEFAULT 'personal';
+-- scope_type: 'global' | 'system' | 'department' | 'personal'
+
+-- 部门层级关系
+CREATE TABLE department_hierarchy (
+  dept_id INT PRIMARY KEY,
+  parent_dept_id INT,
+  level INT NOT NULL DEFAULT 1
+);</pre>
+                <br>
+                <strong>2. 权限审批流程 + 3. Migration 脚本 + 单元测试</strong>
+                <br>正在生成完整代码...
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

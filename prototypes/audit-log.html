@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Space - 审计日志</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><div class="logo-icon">T</div><div><div class="logo-text">Team Space</div><div class="logo-sub">AI 协作平台</div></div></div>
+    <nav class="sidebar-nav">
+      <div class="nav-section"><div class="nav-section-title">概览</div><a class="nav-item" href="dashboard.html"><span class="nav-icon">📊</span> 仪表盘</a></div>
+      <div class="nav-section">
+        <div class="nav-section-title">知识资产</div>
+        <a class="nav-item" href="knowledge.html"><span class="nav-icon">📚</span> 知识库<span class="nav-badge">32</span></a>
+        <a class="nav-item" href="skills.html"><span class="nav-icon">⚡</span> 技能<span class="nav-badge">18</span></a>
+        <a class="nav-item" href="tools.html"><span class="nav-icon">🔧</span> 工具</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">对话分析</div><a class="nav-item" href="conversations.html"><span class="nav-icon">💬</span> 对话记录</a><a class="nav-item" href="analytics.html"><span class="nav-icon">🏆</span> 优秀对话<span class="nav-badge">3</span></a></div>
+      <div class="nav-section"><div class="nav-section-title">AI 优化</div><a class="nav-item" href="optimization.html"><span class="nav-icon">🤖</span> 优化提案<span class="nav-badge">2</span></a><a class="nav-item active" href="audit-log.html"><span class="nav-icon">📋</span> 审计日志</a></div>
+      <div class="nav-section"><div class="nav-section-title">设置</div><a class="nav-item" href="local-config.html"><span class="nav-icon">⚙️</span> 本地配置</a><a class="nav-item" href="settings.html"><span class="nav-icon">🏷️</span> 标签管理</a></div>
+    </nav>
+    <div class="sidebar-footer"><div class="avatar" style="background:#6366F1">张</div><div class="user-info"><div class="user-name">张三</div><div class="user-role">后端工程师</div></div></div>
+  </aside>
+
+  <main class="main-content">
+    <div class="page-header">
+      <div>
+        <h1>📋 审计日志</h1>
+        <div class="subtitle">所有 AI 优化的完整变更记录 · 可追溯、可回滚</div>
+      </div>
+      <div class="header-actions">
+        <div class="search-box"><span>🔍</span><input type="text" placeholder="搜索日志..."></div>
+        <button class="btn">📅 日期范围</button>
+        <button class="btn">📥 导出</button>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <!-- Filter -->
+      <div class="filter-bar">
+        <span style="font-size:12px;color:var(--gray-500);font-weight:600;margin-right:4px">状态：</span>
+        <span class="filter-chip active">全部</span>
+        <span class="filter-chip">✅ 已应用</span>
+        <span class="filter-chip">↩️ 已回滚</span>
+        <span class="filter-chip">❌ 已拒绝</span>
+        <span style="font-size:12px;color:var(--gray-500);font-weight:600;margin-left:12px;margin-right:4px">类型：</span>
+        <span class="filter-chip">Prompt 蒸馏</span>
+        <span class="filter-chip">失败修复</span>
+        <span class="filter-chip">知识补全</span>
+        <span class="filter-chip">Skill 孵化</span>
+        <span style="font-size:12px;color:var(--gray-500);font-weight:600;margin-left:12px;margin-right:4px">风险：</span>
+        <span class="filter-chip">🟢 低</span>
+        <span class="filter-chip">🟡 中</span>
+        <span class="filter-chip">🔴 高</span>
+      </div>
+
+      <!-- Timeline View -->
+      <div class="card">
+        <div class="card-body">
+          <!-- Today -->
+          <div style="margin-bottom:24px">
+            <div style="font-size:13px;font-weight:600;color:var(--gray-600);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--gray-200)">
+              📅 2026-06-05 (今天)
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot" style="background:var(--success)"></div>
+              <div class="timeline-content" style="flex:1">
+                <div style="display:flex;justify-content:space-between;align-items:start">
+                  <div>
+                    <div class="tl-title">
+                      <span class="tag tag-success" style="font-size:10px;margin-right:6px">🟢 低风险</span>
+                      <code>generate-api-doc</code> 新增触发关键词
+                    </div>
+                    <div class="tl-desc">
+                      添加了 "接口文档"、"swagger" 两个触发关键词<br>
+                      <strong>依据：</strong>对话 #145 用户使用"帮我生成接口文档"但未触发该 Skill
+                    </div>
+                    <div class="tl-time">02:15 · 自动执行 · Prompt 蒸馏</div>
+                  </div>
+                  <div style="display:flex;gap:6px">
+                    <button class="btn btn-sm">查看 Diff</button>
+                    <button class="btn btn-sm btn-danger">回滚</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot" style="background:var(--success)"></div>
+              <div class="timeline-content" style="flex:1">
+                <div style="display:flex;justify-content:space-between;align-items:start">
+                  <div>
+                    <div class="tl-title">
+                      <span class="tag tag-success" style="font-size:10px;margin-right:6px">🟢 低风险</span>
+                      <code>db-query-analysis</code> 新增 few-shot 示例
+                    </div>
+                    <div class="tl-desc">
+                      从优秀对话 #142 提取的复杂 JOIN 查询示例<br>
+                      <strong>依据：</strong>对话 #142 评分 0.85，展示了多表关联查询的最佳实践
+                    </div>
+                    <div class="tl-time">02:12 · 自动执行 · 示例蒸馏</div>
+                  </div>
+                  <div style="display:flex;gap:6px">
+                    <button class="btn btn-sm">查看 Diff</button>
+                    <button class="btn btn-sm btn-danger">回滚</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot" style="background:var(--success)"></div>
+              <div class="timeline-content" style="flex:1">
+                <div style="display:flex;justify-content:space-between;align-items:start">
+                  <div>
+                    <div class="tl-title">
+                      <span class="tag tag-success" style="font-size:10px;margin-right:6px">🟢 低风险</span>
+                      <code>write-unit-test</code> Prompt 措辞微调
+                    </div>
+                    <div class="tl-desc">
+                      "生成测试" → "生成符合 AAA 模式的单元测试（Arrange-Act-Assert）"<br>
+                      <strong>依据：</strong>对话 #138、#140 用户反馈测试结构不清晰
+                    </div>
+                    <div class="tl-time">02:10 · 自动执行 · 措辞优化</div>
+                  </div>
+                  <div style="display:flex;gap:6px">
+                    <button class="btn btn-sm">查看 Diff</button>
+                    <button class="btn btn-sm btn-danger">回滚</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Yesterday -->
+          <div style="margin-bottom:24px">
+            <div style="font-size:13px;font-weight:600;color:var(--gray-600);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--gray-200)">
+              📅 2026-06-04 (昨天)
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot" style="background:var(--warning)"></div>
+              <div class="timeline-content" style="flex:1">
+                <div style="display:flex;justify-content:space-between;align-items:start">
+                  <div>
+                    <div class="tl-title">
+                      <span class="tag tag-warning" style="font-size:10px;margin-right:6px">🟡 中风险</span>
+                      <code>code-review-checker</code> v1.5.0 已回滚至 v1.4.0
+                      <span class="tag tag-danger" style="font-size:10px;margin-left:6px">↩️ 已回滚</span>
+                    </div>
+                    <div class="tl-desc">
+                      <strong>变更内容：</strong>重构了代码检查规则，增加了对 TypeScript 的支持<br>
+                      <strong>回滚原因：</strong>灰度测试显示新版本成功率下降 18%（84% → 69%），满意度下降 0.8 分<br>
+                      <strong>根因分析：</strong>TypeScript 规则误判了部分合法语法，导致误报率上升<br>
+                      <strong>后续行动：</strong>已生成修复提案，等待人工审核
+                    </div>
+                    <div class="tl-time">14:30 · 自动回滚 · 灰度失败</div>
+                  </div>
+                  <div style="display:flex;gap:6px">
+                    <button class="btn btn-sm">查看 Diff</button>
+                    <button class="btn btn-sm btn-success">恢复</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot" style="background:var(--success)"></div>
+              <div class="timeline-content" style="flex:1">
+                <div style="display:flex;justify-content:space-between;align-items:start">
+                  <div>
+                    <div class="tl-title">
+                      <span class="tag tag-warning" style="font-size:10px;margin-right:6px">🟡 中风险</span>
+                      <code>generate-api-doc</code> v1.2.0 全量发布
+                      <span class="tag tag-success" style="font-size:10px;margin-left:6px">✅ 成功</span>
+                    </div>
+                    <div class="tl-desc">
+                      <strong>变更内容：</strong>输出格式调整，增加了"错误码说明"和"调用示例"章节<br>
+                      <strong>审批人：</strong>张三、李四<br>
+                      <strong>灰度结果：</strong>3 天测试，成功率 92% → 95%，满意度 4.3 → 4.5<br>
+                      <strong>依据：</strong>优秀对话 #98 中用户手动要求添加错误码说明
+                    </div>
+                    <div class="tl-time">10:00 · 人工审批 · 灰度成功</div>
+                  </div>
+                  <div style="display:flex;gap:6px">
+                    <button class="btn btn-sm">查看 Diff</button>
+                    <button class="btn btn-sm btn-danger">回滚</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3 Days Ago -->
+          <div style="margin-bottom:24px">
+            <div style="font-size:13px;font-weight:600;color:var(--gray-600);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--gray-200)">
+              📅 2026-06-02 (3 天前)
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot" style="background:var(--success)"></div>
+              <div class="timeline-content" style="flex:1">
+                <div style="display:flex;justify-content:space-between;align-items:start">
+                  <div>
+                    <div class="tl-title">
+                      <span class="tag tag-info" style="font-size:10px;margin-right:6px">🔵 知识库</span>
+                      新增文档：《CRM 客户跟进流程 PRD v3》
+                      <span class="tag tag-success" style="font-size:10px;margin-left:6px">✅ 已发布</span>
+                    </div>
+                    <div class="tl-desc">
+                      <strong>变更内容：</strong>新增 PRD 文档，覆盖客户全生命周期管理<br>
+                      <strong>触发原因：</strong>对话 #89、#92、#95 中 AI 缺少 CRM 业务上下文，导致回复偏离实际<br>
+                      <strong>审批人：</strong>李四（作者）、王五（审核）<br>
+                      <strong>效果：</strong>后续 CRM 相关对话成功率提升 22%
+                    </div>
+                    <div class="tl-time">16:20 · 人工审批 · 知识补全</div>
+                  </div>
+                  <div style="display:flex;gap:6px">
+                    <button class="btn btn-sm">查看文档</button>
+                    <button class="btn btn-sm btn-danger">归档</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot" style="background:var(--success)"></div>
+              <div class="timeline-content" style="flex:1">
+                <div style="display:flex;justify-content:space-between;align-items:start">
+                  <div>
+                    <div class="tl-title">
+                      <span class="tag tag-primary" style="font-size:10px;margin-right:6px">⚡ Skill</span>
+                      <code>db-query-analysis</code> v1.0.0 发布
+                      <span class="tag tag-success" style="font-size:10px;margin-left:6px">✅ 新 Skill</span>
+                    </div>
+                    <div class="tl-desc">
+                      <strong>变更内容：</strong>新建数据库查询与分析 Skill<br>
+                      <strong>孵化依据：</strong>过去 14 天 8 次对话涉及 SQL 查询，但无对应 Skill<br>
+                      <strong>审批人：</strong>李四（作者）、张三、赵六（审核）<br>
+                      <strong>当前状态：</strong>已使用 28 次，成功率 85%，满意度 4.1
+                    </div>
+                    <div class="tl-time">11:30 · 人工审批 · Skill 孵化</div>
+                  </div>
+                  <div style="display:flex;gap:6px">
+                    <button class="btn btn-sm">查看详情</button>
+                    <button class="btn btn-sm btn-danger">废弃</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Older -->
+          <div>
+            <div style="font-size:13px;font-weight:600;color:var(--gray-600);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--gray-200)">
+              📅 更早的记录
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot" style="background:var(--danger)"></div>
+              <div class="timeline-content" style="flex:1">
+                <div style="display:flex;justify-content:space-between;align-items:start">
+                  <div>
+                    <div class="tl-title">
+                      <span class="tag tag-danger" style="font-size:10px;margin-right:6px">🔴 高风险</span>
+                      <code>deploy-trigger</code> 权限调整被拒绝
+                      <span class="tag tag-gray" style="font-size:10px;margin-left:6px">❌ 已拒绝</span>
+                    </div>
+                    <div class="tl-desc">
+                      <strong>变更内容：</strong>AI 建议将 deploy-trigger 从 Dangerous 降级为 Caution<br>
+                      <strong>拒绝原因：</strong>张三、李四、王五三人审核认为部署操作必须保持最高风险级别，不可降级<br>
+                      <strong>审批人：</strong>张三（拒绝）、李四（拒绝）、王五（拒绝）
+                    </div>
+                    <div class="tl-time">2026-05-28 15:40 · 人工拒绝 · 权限变更</div>
+                  </div>
+                  <div style="display:flex;gap:6px">
+                    <button class="btn btn-sm">查看详情</button>
+                    <button class="btn btn-sm">重新审批</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:24px">
+        <span style="font-size:12px;color:var(--gray-500)">显示 1-8 / 共 156 条记录</span>
+        <div style="display:flex;gap:4px">
+          <button class="btn btn-sm" disabled>上一页</button>
+          <button class="btn btn-sm btn-primary">1</button>
+          <button class="btn btn-sm">2</button>
+          <button class="btn btn-sm">3</button>
+          <button class="btn btn-sm">...</button>
+          <button class="btn btn-sm">20</button>
+          <button class="btn btn-sm">下一页</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

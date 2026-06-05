@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Space - 技能系统</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><div class="logo-icon">T</div><div><div class="logo-text">Team Space</div><div class="logo-sub">AI 协作平台</div></div></div>
+    <nav class="sidebar-nav">
+      <div class="nav-section"><div class="nav-section-title">概览</div><a class="nav-item" href="dashboard.html"><span class="nav-icon">📊</span> 仪表盘</a></div>
+      <div class="nav-section">
+        <div class="nav-section-title">知识资产</div>
+        <a class="nav-item" href="knowledge.html"><span class="nav-icon">📚</span> 知识库<span class="nav-badge">32</span></a>
+        <a class="nav-item active" href="skills.html"><span class="nav-icon">⚡</span> 技能<span class="nav-badge">18</span></a>
+        <a class="nav-item" href="tools.html"><span class="nav-icon">🔧</span> 工具</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">对话分析</div><a class="nav-item" href="conversations.html"><span class="nav-icon">💬</span> 对话记录</a><a class="nav-item" href="analytics.html"><span class="nav-icon">🏆</span> 优秀对话<span class="nav-badge">3</span></a></div>
+      <div class="nav-section"><div class="nav-section-title">AI 优化</div><a class="nav-item" href="optimization.html"><span class="nav-icon">🤖</span> 优化提案<span class="nav-badge">2</span></a><a class="nav-item" href="audit-log.html"><span class="nav-icon">📋</span> 审计日志</a></div>
+      <div class="nav-section"><div class="nav-section-title">设置</div><a class="nav-item" href="local-config.html"><span class="nav-icon">⚙️</span> 本地配置</a><a class="nav-item" href="settings.html"><span class="nav-icon">🏷️</span> 标签管理</a></div>
+    </nav>
+    <div class="sidebar-footer"><div class="avatar" style="background:#6366F1">张</div><div class="user-info"><div class="user-name">张三</div><div class="user-role">后端工程师</div></div></div>
+  </aside>
+
+  <main class="main-content">
+    <div class="page-header">
+      <div>
+        <h1>⚡ 技能系统</h1>
+        <div class="subtitle">教 AI 怎么做的标准化指令包 · 18 个技能已注册</div>
+      </div>
+      <div class="header-actions">
+        <div class="search-box"><span>🔍</span><input type="text" placeholder="搜索技能名称或描述..."></div>
+        <button class="btn btn-primary">＋ 新建技能</button>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">本周总调用</div>
+          <div class="stat-value">234</div>
+          <div class="stat-change up">↑ 18% 较上周</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">平均成功率</div>
+          <div class="stat-value">87%</div>
+          <div class="stat-change up">↑ 3% 较上周</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">平均满意度</div>
+          <div class="stat-value">4.2</div>
+          <div class="stat-change">⭐ 满分 5.0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">待审核优化</div>
+          <div class="stat-value">2</div>
+          <div class="stat-change" style="color:var(--warning)">⚠️ 需要人工确认</div>
+        </div>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="filter-bar">
+        <span style="font-size:12px;color:var(--gray-500);font-weight:600;margin-right:4px">业务域：</span>
+        <span class="filter-chip active">全部</span>
+        <span class="filter-chip">🏢 OA</span>
+        <span class="filter-chip">💼 销售CRM</span>
+        <span class="filter-chip">🧑‍💼 招聘</span>
+        <span style="font-size:12px;color:var(--gray-500);font-weight:600;margin-left:12px;margin-right:4px">环节：</span>
+        <span class="filter-chip">需求分析</span>
+        <span class="filter-chip">开发</span>
+        <span class="filter-chip">测试</span>
+      </div>
+
+      <!-- Skill Cards Grid -->
+      <div class="grid-3">
+        <!-- Skill Card 1 -->
+        <div class="card" style="cursor:pointer;transition:all 0.2s" onmouseover="this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.boxShadow='none'">
+          <div class="card-body">
+            <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:12px">
+              <div>
+                <div style="font-size:16px;font-weight:600;color:var(--gray-800);margin-bottom:4px">generate-api-doc</div>
+                <div style="font-size:12px;color:var(--gray-500)">根据代码自动生成 API 文档</div>
+              </div>
+              <span class="tag tag-success">v1.2.0</span>
+            </div>
+            <div style="margin-bottom:12px">
+              <span class="tag tag-business">OA</span>
+              <span class="tag tag-business">CRM</span>
+              <span class="tag tag-phase">开发</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--gray-600);margin-bottom:8px">
+              <span>📊 使用 <strong>47</strong> 次</span>
+              <span>✅ 成功率 <strong>92%</strong></span>
+              <span>⭐ <strong>4.5</strong></span>
+            </div>
+            <div class="progress-bar" style="margin-bottom:8px"><div class="progress-fill green" style="width:92%"></div></div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray-500)">
+                <div class="avatar-sm" style="background:#6366F1;width:20px;height:20px;font-size:10px">张</div>张三
+              </div>
+              <span style="font-size:11px;color:var(--gray-400)">更新于 2026-06-01</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skill Card 2 -->
+        <div class="card" style="cursor:pointer;transition:all 0.2s" onmouseover="this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.boxShadow='none'">
+          <div class="card-body">
+            <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:12px">
+              <div>
+                <div style="font-size:16px;font-weight:600;color:var(--gray-800);margin-bottom:4px">write-unit-test</div>
+                <div style="font-size:12px;color:var(--gray-500)">自动生成单元测试代码</div>
+              </div>
+              <span class="tag tag-success">v2.1.0</span>
+            </div>
+            <div style="margin-bottom:12px">
+              <span class="tag tag-phase">开发</span>
+              <span class="tag tag-phase">测试</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--gray-600);margin-bottom:8px">
+              <span>📊 使用 <strong>35</strong> 次</span>
+              <span>✅ 成功率 <strong>88%</strong></span>
+              <span>⭐ <strong>4.3</strong></span>
+            </div>
+            <div class="progress-bar" style="margin-bottom:8px"><div class="progress-fill green" style="width:88%"></div></div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray-500)">
+                <div class="avatar-sm" style="background:#10B981;width:20px;height:20px;font-size:10px">王</div>王五
+              </div>
+              <span style="font-size:11px;color:var(--gray-400)">更新于 2026-06-03</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skill Card 3 -->
+        <div class="card" style="cursor:pointer;transition:all 0.2s" onmouseover="this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.boxShadow='none'">
+          <div class="card-body">
+            <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:12px">
+              <div>
+                <div style="font-size:16px;font-weight:600;color:var(--gray-800);margin-bottom:4px">db-query-analysis</div>
+                <div style="font-size:12px;color:var(--gray-500)">数据库查询与数据分析</div>
+              </div>
+              <span class="tag tag-success">v1.0.0</span>
+            </div>
+            <div style="margin-bottom:12px">
+              <span class="tag tag-business">OA</span>
+              <span class="tag tag-phase">开发</span>
+              <span class="tag tag-phase">测试</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--gray-600);margin-bottom:8px">
+              <span>📊 使用 <strong>28</strong> 次</span>
+              <span>✅ 成功率 <strong>85%</strong></span>
+              <span>⭐ <strong>4.1</strong></span>
+            </div>
+            <div class="progress-bar" style="margin-bottom:8px"><div class="progress-fill green" style="width:85%"></div></div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray-500)">
+                <div class="avatar-sm" style="background:#F59E0B;width:20px;height:20px;font-size:10px">李</div>李四
+              </div>
+              <span style="font-size:11px;color:var(--gray-400)">更新于 2026-05-28</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skill Card 4 - 需要优化 -->
+        <div class="card" style="cursor:pointer;transition:all 0.2s;border:2px solid var(--warning)" onmouseover="this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.boxShadow='none'">
+          <div class="card-body">
+            <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:12px">
+              <div>
+                <div style="font-size:16px;font-weight:600;color:var(--gray-800);margin-bottom:4px">gen-test-case ⚠️</div>
+                <div style="font-size:12px;color:var(--gray-500)">从 PRD 生成测试用例</div>
+              </div>
+              <span class="tag tag-warning">需优化</span>
+            </div>
+            <div style="margin-bottom:12px">
+              <span class="tag tag-phase">测试</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--gray-600);margin-bottom:8px">
+              <span>📊 使用 <strong>21</strong> 次</span>
+              <span style="color:var(--warning)">⚠️ 成功率 <strong>76%</strong></span>
+              <span>⭐ <strong>3.8</strong></span>
+            </div>
+            <div class="progress-bar" style="margin-bottom:8px"><div class="progress-fill orange" style="width:76%"></div></div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray-500)">
+                <div class="avatar-sm" style="background:#EF4444;width:20px;height:20px;font-size:10px">赵</div>赵六
+              </div>
+              <span style="font-size:11px;color:var(--warning)">满意度下降中</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skill Card 5 - 新孵化 -->
+        <div class="card" style="cursor:pointer;transition:all 0.2s;border:2px solid var(--info)" onmouseover="this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.boxShadow='none'">
+          <div class="card-body">
+            <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:12px">
+              <div>
+                <div style="font-size:16px;font-weight:600;color:var(--gray-800);margin-bottom:4px">message-queue-integration 🆕</div>
+                <div style="font-size:12px;color:var(--gray-500)">消息队列接入指南</div>
+              </div>
+              <span class="tag tag-info">孵化中</span>
+            </div>
+            <div style="margin-bottom:12px">
+              <span class="tag tag-phase">开发</span>
+            </div>
+            <div style="font-size:12px;color:var(--gray-600);margin-bottom:8px">
+              <div style="background:var(--info-light);padding:8px;border-radius:6px;margin-bottom:8px">
+                💡 AI 建议：近 7 天 5 次对话涉及消息队列，建议新建 Skill
+              </div>
+            </div>
+            <div style="display:flex;gap:8px">
+              <button class="btn btn-sm btn-primary" style="flex:1">查看详情</button>
+              <button class="btn btn-sm btn-success" style="flex:1">批准发布</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skill Card 6 -->
+        <div class="card" style="cursor:pointer;transition:all 0.2s" onmouseover="this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.boxShadow='none'">
+          <div class="card-body">
+            <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:12px">
+              <div>
+                <div style="font-size:16px;font-weight:600;color:var(--gray-800);margin-bottom:4px">code-review-checker</div>
+                <div style="font-size:12px;color:var(--gray-500)">自动代码审查检查</div>
+              </div>
+              <span class="tag tag-success">v1.4.0</span>
+            </div>
+            <div style="margin-bottom:12px">
+              <span class="tag tag-phase">开发</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--gray-600);margin-bottom:8px">
+              <span>📊 使用 <strong>19</strong> 次</span>
+              <span>✅ 成功率 <strong>84%</strong></span>
+              <span>⭐ <strong>4.0</strong></span>
+            </div>
+            <div class="progress-bar" style="margin-bottom:8px"><div class="progress-fill green" style="width:84%"></div></div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray-500)">
+                <div class="avatar-sm" style="background:#8B5CF6;width:20px;height:20px;font-size:10px">孙</div>孙七
+              </div>
+              <span style="font-size:11px;color:var(--gray-400)">更新于 2026-06-02</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:24px">
+        <span style="font-size:12px;color:var(--gray-500)">显示 1-6 / 共 18 个技能</span>
+        <div style="display:flex;gap:4px">
+          <button class="btn btn-sm" disabled>上一页</button>
+          <button class="btn btn-sm btn-primary">1</button>
+          <button class="btn btn-sm">2</button>
+          <button class="btn btn-sm">3</button>
+          <button class="btn btn-sm">下一页</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

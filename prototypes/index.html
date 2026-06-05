@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Space - UI 原型导航</title>
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  body { background: linear-gradient(135deg, #1F2937, #111827); min-height: 100vh; }
+  .proto-container { max-width: 960px; margin: 0 auto; padding: 48px 24px; }
+  .proto-header { text-align: center; margin-bottom: 48px; color: white; }
+  .proto-header h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.5px; }
+  .proto-header h1 span { background: linear-gradient(135deg, #818CF8, #6366F1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .proto-header p { color: #9CA3AF; font-size: 15px; margin-top: 8px; }
+  .proto-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .proto-card { background: white; border-radius: 12px; padding: 20px; transition: all 0.2s; cursor: pointer; text-decoration: none; color: inherit; border: 2px solid transparent; }
+  .proto-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); border-color: #6366F1; }
+  .proto-card .icon { font-size: 32px; margin-bottom: 12px; }
+  .proto-card .title { font-size: 15px; font-weight: 700; color: #1F2937; margin-bottom: 4px; }
+  .proto-card .desc { font-size: 12.5px; color: #6B7280; line-height: 1.6; }
+  .proto-card .badge { display: inline-block; margin-top: 10px; font-size: 11px; padding: 2px 8px; border-radius: 4px; background: #EEF2FF; color: #4F46E5; font-weight: 600; }
+  .section-label { color: #9CA3AF; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin: 32px 0 12px; }
+</style>
+</head>
+<body>
+<div class="proto-container">
+  <div class="proto-header">
+    <h1>🚀 <span>Team Space</span> UI 原型</h1>
+    <p>团队 AI 协作操作系统 · 共建知识、共享技能、沉淀对话、自动优化</p>
+    <p style="margin-top:4px;font-size:13px;color:#6B7280">共 9 个页面原型 · 点击卡片进入对应页面</p>
+  </div>
+
+  <div class="section-label">📊 概览</div>
+  <div class="proto-grid">
+    <a class="proto-card" href="dashboard.html">
+      <div class="icon">📊</div>
+      <div class="title">仪表盘</div>
+      <div class="desc">团队 AI 协作概览，统计卡片、优秀对话、优化动态、热门 Skill、最近更新文档</div>
+      <span class="badge">首页入口</span>
+    </a>
+  </div>
+
+  <div class="section-label">📚 知识资产</div>
+  <div class="proto-grid">
+    <a class="proto-card" href="knowledge.html">
+      <div class="icon">📚</div>
+      <div class="title">知识库</div>
+      <div class="desc">团队共享文档中心，双维度标签分类（业务域 + 工作环节），支持列表/卡片视图切换</div>
+      <span class="badge">32 篇文档</span>
+    </a>
+    <a class="proto-card" href="skills.html">
+      <div class="icon">⚡</div>
+      <div class="title">技能系统</div>
+      <div class="desc">标准化 Skill 注册表，含使用统计、满意度、优化状态、新孵化提案</div>
+      <span class="badge">18 个技能</span>
+    </a>
+    <a class="proto-card" href="tools.html">
+      <div class="icon">🔧</div>
+      <div class="title">工具注册表</div>
+      <div class="desc">MCP Server 和自定义工具，三级权限模型（Safe/Caution/Dangerous），本地配置状态</div>
+      <span class="badge">12 个工具</span>
+    </a>
+  </div>
+
+  <div class="section-label">💬 对话分析</div>
+  <div class="proto-grid">
+    <a class="proto-card" href="conversations.html">
+      <div class="icon">💬</div>
+      <div class="title">对话记录</div>
+      <div class="desc">左右分栏布局：对话列表 + 对话详情，支持按 IDE/成员/评分筛选，含 AI 分析摘要</div>
+      <span class="badge">127 条/日</span>
+    </a>
+    <a class="proto-card" href="analytics.html">
+      <div class="icon">🏆</div>
+      <div class="title">优秀对话</div>
+      <div class="desc">AI 日报横幅、五维评分可视化、AI 分析亮点、模式识别（成功/失败/趋势）</div>
+      <span class="badge">核心页面</span>
+    </a>
+  </div>
+
+  <div class="section-label">🤖 AI 优化</div>
+  <div class="proto-grid">
+    <a class="proto-card" href="optimization.html">
+      <div class="icon">🤖</div>
+      <div class="title">优化提案</div>
+      <div class="desc">待审批提案（含 Diff 预览 + 理由 + 预期影响）、灰度 A/B 测试、自动执行记录</div>
+      <span class="badge">2 待审批</span>
+    </a>
+    <a class="proto-card" href="audit-log.html">
+      <div class="icon">📋</div>
+      <div class="title">审计日志</div>
+      <div class="desc">完整变更时间线，按日期分组，每条记录含变更内容/依据/审批人/效果，支持回滚</div>
+      <span class="badge">156 条记录</span>
+    </a>
+  </div>
+
+  <div class="section-label">⚙️ 设置</div>
+  <div class="proto-grid">
+    <a class="proto-card" href="local-config.html">
+      <div class="icon">⚙️</div>
+      <div class="title">本地配置</div>
+      <div class="desc">敏感信息管理面板，配置项列表含状态/引用者，Schema 预览，配置读取流程图</div>
+      <span class="badge">安全核心</span>
+    </a>
+    <a class="proto-card" href="settings.html">
+      <div class="icon">🏷️</div>
+      <div class="title">标签管理</div>
+      <div class="desc">统一分类体系管理，业务域 + 工作环节 + 自定义标签，含使用统计</div>
+      <span class="badge">11 个标签</span>
+    </a>
+  </div>
+</div>
+</body>
+</html>

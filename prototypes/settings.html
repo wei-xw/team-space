@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Space - 标签管理</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><div class="logo-icon">T</div><div><div class="logo-text">Team Space</div><div class="logo-sub">AI 协作平台</div></div></div>
+    <nav class="sidebar-nav">
+      <div class="nav-section"><div class="nav-section-title">概览</div><a class="nav-item" href="dashboard.html"><span class="nav-icon">📊</span> 仪表盘</a></div>
+      <div class="nav-section">
+        <div class="nav-section-title">知识资产</div>
+        <a class="nav-item" href="knowledge.html"><span class="nav-icon">📚</span> 知识库<span class="nav-badge">32</span></a>
+        <a class="nav-item" href="skills.html"><span class="nav-icon">⚡</span> 技能<span class="nav-badge">18</span></a>
+        <a class="nav-item" href="tools.html"><span class="nav-icon">🔧</span> 工具</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">对话分析</div><a class="nav-item" href="conversations.html"><span class="nav-icon">💬</span> 对话记录</a><a class="nav-item" href="analytics.html"><span class="nav-icon">🏆</span> 优秀对话<span class="nav-badge">3</span></a></div>
+      <div class="nav-section"><div class="nav-section-title">AI 优化</div><a class="nav-item" href="optimization.html"><span class="nav-icon">🤖</span> 优化提案<span class="nav-badge">2</span></a><a class="nav-item" href="audit-log.html"><span class="nav-icon">📋</span> 审计日志</a></div>
+      <div class="nav-section"><div class="nav-section-title">设置</div><a class="nav-item" href="local-config.html"><span class="nav-icon">⚙️</span> 本地配置</a><a class="nav-item active" href="settings.html"><span class="nav-icon">🏷️</span> 标签管理</a></div>
+    </nav>
+    <div class="sidebar-footer"><div class="avatar" style="background:#6366F1">张</div><div class="user-info"><div class="user-name">张三</div><div class="user-role">后端工程师</div></div></div>
+  </aside>
+
+  <main class="main-content">
+    <div class="page-header">
+      <div>
+        <h1>🏷️ 标签管理</h1>
+        <div class="subtitle">统一分类体系 · 贯穿知识库、技能、工具和对话</div>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-primary">＋ 新建标签</button>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <!-- Description -->
+      <div style="background:var(--info-light);border:1px solid #BFDBFE;border-radius:var(--radius-lg);padding:16px 20px;margin-bottom:24px;font-size:13px;line-height:1.7;color:var(--gray-700)">
+        <strong>分类体系说明：</strong>标签采用<strong>双维度分类</strong>，所有资产（文档、技能、工具、对话）共用同一套标签系统。
+        <br>• <strong>业务域标签</strong>：按业务系统分类，如 OA、销售CRM、招聘系统等（用户自定义）
+        <br>• <strong>工作环节标签</strong>：按工作流阶段分类，如需求分析、开发、测试、发布等（预置 + 可自定义）
+        <br>• <strong>自定义标签</strong>：团队可自行添加其他分类标签
+      </div>
+
+      <!-- Business Domain Tags -->
+      <div class="card" style="margin-bottom:24px">
+        <div class="card-header">
+          <h3>🏢 业务域标签 <span class="tag tag-gray">5 个</span></h3>
+          <button class="btn btn-sm btn-primary">＋ 添加业务域</button>
+        </div>
+        <div class="card-body">
+          <div style="display:flex;flex-wrap:wrap;gap:12px">
+            <div style="padding:12px 16px;border:1px solid #BBF7D0;background:#F0FDF4;border-radius:var(--radius-lg);min-width:200px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                <span class="tag tag-business" style="font-size:13px;padding:4px 10px">🏢 OA</span>
+                <span style="font-size:11px;color:var(--gray-400)">14 项资产</span>
+              </div>
+              <div style="font-size:12px;color:var(--gray-500)">办公自动化系统 · 审批、请假、考勤</div>
+            </div>
+            <div style="padding:12px 16px;border:1px solid #BBF7D0;background:#F0FDF4;border-radius:var(--radius-lg);min-width:200px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                <span class="tag tag-business" style="font-size:13px;padding:4px 10px">💼 销售CRM</span>
+                <span style="font-size:11px;color:var(--gray-400)">9 项资产</span>
+              </div>
+              <div style="font-size:12px;color:var(--gray-500)">客户关系管理 · 线索、客户、合同</div>
+            </div>
+            <div style="padding:12px 16px;border:1px solid #BBF7D0;background:#F0FDF4;border-radius:var(--radius-lg);min-width:200px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                <span class="tag tag-business" style="font-size:13px;padding:4px 10px">🧑‍💼 招聘系统</span>
+                <span style="font-size:11px;color:var(--gray-400)">5 项资产</span>
+              </div>
+              <div style="font-size:12px;color:var(--gray-500)">候选人管理 · 面试、Offer、入职</div>
+            </div>
+            <div style="padding:12px 16px;border:1px solid #BBF7D0;background:#F0FDF4;border-radius:var(--radius-lg);min-width:200px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                <span class="tag tag-business" style="font-size:13px;padding:4px 10px">💰 财务平台</span>
+                <span style="font-size:11px;color:var(--gray-400)">3 项资产</span>
+              </div>
+              <div style="font-size:12px;color:var(--gray-500)">财务管理 · 报销、预算、对账</div>
+            </div>
+            <div style="padding:12px 16px;border:1px solid #BBF7D0;background:#F0FDF4;border-radius:var(--radius-lg);min-width:200px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                <span class="tag tag-business" style="font-size:13px;padding:4px 10px">🛠️ 内部工具</span>
+                <span style="font-size:11px;color:var(--gray-400)">1 项资产</span>
+              </div>
+              <div style="font-size:12px;color:var(--gray-500)">内部效率工具 · 监控、运维</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Work Phase Tags -->
+      <div class="card" style="margin-bottom:24px">
+        <div class="card-header">
+          <h3>🔄 工作环节标签 <span class="tag tag-gray">6 个</span></h3>
+          <button class="btn btn-sm btn-primary">＋ 添加环节</button>
+        </div>
+        <div class="card-body">
+          <div style="display:flex;flex-wrap:wrap;gap:12px">
+            <div style="padding:12px 16px;border:1px solid #BFDBFE;background:#EFF6FF;border-radius:var(--radius-lg);min-width:180px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                <span class="tag tag-phase" style="font-size:13px;padding:4px 10px">📋 需求分析</span>
+                <span style="font-size:11px;color:var(--gray-400)">8 项资产</span>
+              </div>
+              <div style="font-size:12px;color:var(--gray-500)">PRD、用户故事、需求评审</div>
+            </div>
+            <div style="padding:12px 16px;border:1px solid #BFDBFE;background:#EFF6FF;border-radius:var(--radius-lg);min-width:180px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                <span class="tag tag-phase" style="font-size:13px;padding:4px 10px">🎨 UI设计</span>
+                <span style="font-size:11px;color:var(--gray-400)">2 项资产</span>
+              </div>
+              <div style="font-size:12px;color:var(--gray-500)">原型、设计稿、组件规范</div>
+            </div>
+            <div style="padding:12px 16px;border:1px solid #BFDBFE;background:#EFF6FF;border-radius:var(--radius-lg);min-width:180px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                <span class="tag tag-phase" style="font-size:13px;padding:4px 10px">💻 开发</span>
+                <span style="font-size:11px;color:var(--gray-400)">21 项资产</span>
+              </div>
+              <div style="font-size:12px;color:var(--gray-500)">编码、技术方案、Code Review</div>
+            </div>
+            <div style="padding:12px 16px;border:1px solid #BFDBFE;background:#EFF6FF;border-radius:var(--radius-lg);min-width:180px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                <span class="tag tag-phase" style="font-size:13px;padding:4px 10px">🧪 测试</span>
+                <span style="font-size:11px;color:var(--gray-400)">6 项资产</span>
+              </div>
+              <div style="font-size:12px;color:var(--gray-500)">测试用例、自动化测试、Bug 管理</div>
+            </div>
+            <div style="padding:12px 16px;border:1px solid #BFDBFE;background:#EFF6FF;border-radius:var(--radius-lg);min-width:180px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                <span class="tag tag-phase" style="font-size:13px;padding:4px 10px">🚀 发布</span>
+                <span style="font-size:11px;color:var(--gray-400)">3 项资产</span>
+              </div>
+              <div style="font-size:12px;color:var(--gray-500)">部署、发布流程、回滚方案</div>
+            </div>
+            <div style="padding:12px 16px;border:1px solid #BFDBFE;background:#EFF6FF;border-radius:var(--radius-lg);min-width:180px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                <span class="tag tag-phase" style="font-size:13px;padding:4px 10px">🔧 运维</span>
+                <span style="font-size:11px;color:var(--gray-400)">2 项资产</span>
+              </div>
+              <div style="font-size:12px;color:var(--gray-500)">监控、告警、故障处理</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tag Usage Stats -->
+      <div class="card">
+        <div class="card-header">
+          <h3>📊 标签使用统计</h3>
+        </div>
+        <div class="card-body-compact">
+          <table>
+            <thead>
+              <tr>
+                <th>标签名称</th>
+                <th>类型</th>
+                <th>关联文档</th>
+                <th>关联技能</th>
+                <th>关联工具</th>
+                <th>关联对话</th>
+                <th>创建时间</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="tag tag-business">🏢 OA</span></td>
+                <td><span class="tag tag-gray">业务域</span></td>
+                <td><strong>8</strong></td>
+                <td><strong>4</strong></td>
+                <td><strong>2</strong></td>
+                <td><strong>67</strong></td>
+                <td style="font-size:12px;color:var(--gray-500)">2026-05-01</td>
+                <td><button class="btn btn-sm">编辑</button></td>
+              </tr>
+              <tr>
+                <td><span class="tag tag-business">💼 销售CRM</span></td>
+                <td><span class="tag tag-gray">业务域</span></td>
+                <td><strong>5</strong></td>
+                <td><strong>2</strong></td>
+                <td><strong>1</strong></td>
+                <td><strong>45</strong></td>
+                <td style="font-size:12px;color:var(--gray-500)">2026-05-01</td>
+                <td><button class="btn btn-sm">编辑</button></td>
+              </tr>
+              <tr>
+                <td><span class="tag tag-phase">💻 开发</span></td>
+                <td><span class="tag tag-gray">工作环节</span></td>
+                <td><strong>12</strong></td>
+                <td><strong>8</strong></td>
+                <td><strong>3</strong></td>
+                <td><strong>89</strong></td>
+                <td style="font-size:12px;color:var(--gray-500)">2026-05-01</td>
+                <td><button class="btn btn-sm">编辑</button></td>
+              </tr>
+              <tr>
+                <td><span class="tag tag-phase">🧪 测试</span></td>
+                <td><span class="tag tag-gray">工作环节</span></td>
+                <td><strong>3</strong></td>
+                <td><strong>2</strong></td>
+                <td><strong>1</strong></td>
+                <td><strong>32</strong></td>
+                <td style="font-size:12px;color:var(--gray-500)">2026-05-01</td>
+                <td><button class="btn btn-sm">编辑</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Space - 优秀对话分析</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><div class="logo-icon">T</div><div><div class="logo-text">Team Space</div><div class="logo-sub">AI 协作平台</div></div></div>
+    <nav class="sidebar-nav">
+      <div class="nav-section"><div class="nav-section-title">概览</div><a class="nav-item" href="dashboard.html"><span class="nav-icon">📊</span> 仪表盘</a></div>
+      <div class="nav-section">
+        <div class="nav-section-title">知识资产</div>
+        <a class="nav-item" href="knowledge.html"><span class="nav-icon">📚</span> 知识库<span class="nav-badge">32</span></a>
+        <a class="nav-item" href="skills.html"><span class="nav-icon">⚡</span> 技能<span class="nav-badge">18</span></a>
+        <a class="nav-item" href="tools.html"><span class="nav-icon">🔧</span> 工具</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">对话分析</div><a class="nav-item" href="conversations.html"><span class="nav-icon">💬</span> 对话记录</a><a class="nav-item active" href="analytics.html"><span class="nav-icon">🏆</span> 优秀对话<span class="nav-badge">3</span></a></div>
+      <div class="nav-section"><div class="nav-section-title">AI 优化</div><a class="nav-item" href="optimization.html"><span class="nav-icon">🤖</span> 优化提案<span class="nav-badge">2</span></a><a class="nav-item" href="audit-log.html"><span class="nav-icon">📋</span> 审计日志</a></div>
+      <div class="nav-section"><div class="nav-section-title">设置</div><a class="nav-item" href="local-config.html"><span class="nav-icon">⚙️</span> 本地配置</a><a class="nav-item" href="settings.html"><span class="nav-icon">🏷️</span> 标签管理</a></div>
+    </nav>
+    <div class="sidebar-footer"><div class="avatar" style="background:#6366F1">张</div><div class="user-info"><div class="user-name">张三</div><div class="user-role">后端工程师</div></div></div>
+  </aside>
+
+  <main class="main-content">
+    <div class="page-header">
+      <div>
+        <h1>🏆 优秀对话</h1>
+        <div class="subtitle">AI 分析识别的高质量对话 · 自动发现值得推广的 AI 实践</div>
+      </div>
+      <div class="header-actions">
+        <div class="search-box"><span>🔍</span><input type="text" placeholder="搜索优秀对话..."></div>
+        <button class="btn">📅 日期范围</button>
+        <button class="btn btn-primary">📤 推送到群</button>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <!-- Daily Report Banner -->
+      <div style="background:linear-gradient(135deg,#4F46E5,#7C3AED);border-radius:var(--radius-xl);padding:24px 28px;color:white;margin-bottom:24px;display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <div style="font-size:18px;font-weight:700;margin-bottom:4px">📊 团队 AI 日报 — 2026-06-04</div>
+          <div style="font-size:13px;opacity:0.85">昨日 127 条对话 · 发现 3 条精选 · 2 条优化提案待审</div>
+        </div>
+        <div style="display:flex;gap:24px;text-align:center">
+          <div>
+            <div style="font-size:28px;font-weight:700">3</div>
+            <div style="font-size:11px;opacity:0.7">精选对话</div>
+          </div>
+          <div>
+            <div style="font-size:28px;font-weight:700">12</div>
+            <div style="font-size:11px;opacity:0.7">优秀对话</div>
+          </div>
+          <div>
+            <div style="font-size:28px;font-weight:700">0.71</div>
+            <div style="font-size:11px;opacity:0.7">平均分</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <span class="tab active">⭐ 精选对话 (3)</span>
+        <span class="tab">🏅 优秀对话 (12)</span>
+        <span class="tab">📈 趋势分析</span>
+        <span class="tab">🧩 模式识别</span>
+      </div>
+
+      <!-- Excellent Conversations Detail -->
+      <!-- Conversation 1 -->
+      <div class="card" style="margin-bottom:16px;border:2px solid var(--success)">
+        <div class="card-header" style="background:var(--success-light)">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="score-badge score-excellent">0.92</div>
+            <div>
+              <h3>用 Claude Code 重构用户权限模块</h3>
+              <div style="font-size:12px;color:var(--gray-500);margin-top:2px">张三 · Cursor · 2026-06-04 14:20 · 12 轮对话</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <span class="tag tag-success">⭐ 精选</span>
+            <span class="tag tag-business">OA</span>
+            <span class="tag tag-phase">开发</span>
+            <button class="btn btn-sm btn-success">👍 点赞</button>
+            <button class="btn btn-sm">🔗 分享</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <!-- Scoring Breakdown -->
+          <div style="display:flex;gap:24px;margin-bottom:16px;padding:12px;background:var(--gray-50);border-radius:var(--radius)">
+            <div style="text-align:center">
+              <div style="font-size:20px;font-weight:700;color:var(--primary)">4.5</div>
+              <div style="font-size:11px;color:var(--gray-500)">问题质量</div>
+              <div style="font-size:10px;color:var(--gray-400)">20%</div>
+            </div>
+            <div style="text-align:center">
+              <div style="font-size:20px;font-weight:700;color:var(--primary)">4.8</div>
+              <div style="font-size:11px;color:var(--gray-500)">回答质量</div>
+              <div style="font-size:10px;color:var(--gray-400)">25%</div>
+            </div>
+            <div style="text-align:center">
+              <div style="font-size:20px;font-weight:700;color:var(--primary)">4.5</div>
+              <div style="font-size:11px;color:var(--gray-500)">过程质量</div>
+              <div style="font-size:10px;color:var(--gray-400)">15%</div>
+            </div>
+            <div style="text-align:center">
+              <div style="font-size:20px;font-weight:700;color:var(--success)">4.6</div>
+              <div style="font-size:11px;color:var(--gray-500)">可复用性</div>
+              <div style="font-size:10px;color:var(--gray-400)">25%</div>
+            </div>
+            <div style="text-align:center">
+              <div style="font-size:20px;font-weight:700;color:var(--info)">4.2</div>
+              <div style="font-size:11px;color:var(--gray-500)">教育价值</div>
+              <div style="font-size:10px;color:var(--gray-400)">15%</div>
+            </div>
+          </div>
+
+          <!-- AI Analysis -->
+          <div style="background:var(--info-light);border:1px solid #BFDBFE;border-radius:var(--radius);padding:14px;margin-bottom:16px">
+            <div style="font-weight:600;color:var(--info);margin-bottom:6px;font-size:13px">🤖 AI 分析 — 为什么这是精选对话</div>
+            <div style="font-size:13px;color:var(--gray-700);line-height:1.8">
+              <strong>亮点：渐进式 Prompt 模式</strong><br>
+              张三没有一次性抛出所有需求，而是分步骤引导 AI：<br>
+              ① 先给出业务约束和边界条件 → ② 要求设计数据模型 → ③ 补充细节后要求迁移方案 → ④ 最后要求测试代码<br><br>
+              <strong>可学到的技巧：</strong><br>
+              • 在 prompt 中明确列出业务约束（如系统隔离、向后兼容）<br>
+              • 分步骤要求 AI 产出，而非一次性要求全部完成<br>
+              • 每步确认后再进入下一步，减少返工
+            </div>
+          </div>
+
+          <!-- Key Dialogue Excerpt -->
+          <div style="font-size:12px;color:var(--gray-500);margin-bottom:8px;font-weight:600">💬 关键对话片段（第 1 轮）</div>
+          <div class="chat-msg">
+            <div class="chat-avatar user">张</div>
+            <div class="chat-bubble">
+              我需要重构用户权限模块。当前使用的是简单的 role 字段，需要改为 RBAC 模型。
+              <br><br>
+              <strong>业务约束：</strong><br>
+              1. 需要支持 OA、CRM、招聘三个系统的权限隔离<br>
+              2. 角色可以自定义，但默认提供 5 个预设角色<br>
+              3. 权限粒度到菜单+按钮级别<br>
+              4. 需要考虑向后兼容，现有用户数据需要迁移
+            </div>
+          </div>
+          <div style="text-align:center;padding:8px">
+            <a href="conversations.html" style="color:var(--primary);font-size:13px;text-decoration:none;font-weight:500">查看完整对话 →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conversation 2 -->
+      <div class="card" style="margin-bottom:16px">
+        <div class="card-header">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="score-badge score-good">0.81</div>
+            <div>
+              <h3>生成 CRM 数据迁移方案</h3>
+              <div style="font-size:12px;color:var(--gray-500);margin-top:2px">李四 · Claude Code · 2026-06-04 11:35 · 8 轮对话</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <span class="tag tag-success">🏅 优秀</span>
+            <span class="tag tag-business">销售CRM</span>
+            <span class="tag tag-phase">开发</span>
+            <button class="btn btn-sm btn-success">👍 点赞</button>
+            <button class="btn btn-sm">🔗 分享</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div style="display:flex;gap:24px;margin-bottom:16px;padding:12px;background:var(--gray-50);border-radius:var(--radius)">
+            <div style="text-align:center"><div style="font-size:18px;font-weight:700;color:var(--primary)">4.0</div><div style="font-size:11px;color:var(--gray-500)">问题质量</div></div>
+            <div style="text-align:center"><div style="font-size:18px;font-weight:700;color:var(--primary)">4.2</div><div style="font-size:11px;color:var(--gray-500)">回答质量</div></div>
+            <div style="text-align:center"><div style="font-size:18px;font-weight:700;color:var(--primary)">3.8</div><div style="font-size:11px;color:var(--gray-500)">过程质量</div></div>
+            <div style="text-align:center"><div style="font-size:18px;font-weight:700;color:var(--success)">4.3</div><div style="font-size:11px;color:var(--gray-500)">可复用性</div></div>
+            <div style="text-align:center"><div style="font-size:18px;font-weight:700;color:var(--info)">3.9</div><div style="font-size:11px;color:var(--gray-500)">教育价值</div></div>
+          </div>
+          <div style="background:var(--info-light);border:1px solid #BFDBFE;border-radius:var(--radius);padding:14px">
+            <div style="font-weight:600;color:var(--info);margin-bottom:6px;font-size:13px">🤖 AI 分析</div>
+            <div style="font-size:13px;color:var(--gray-700);line-height:1.8">
+              <strong>亮点：完整业务约束驱动</strong><br>
+              李四在 prompt 中提供了完整的业务约束条件（数据量、停机时间窗口、回滚要求），
+              AI 据此生成了覆盖边界情况的迁移方案，包括灰度验证策略和数据一致性校验脚本。
+              <br><strong>可学到的技巧：</strong>在迁移类任务中，明确非功能性约束（停机时间、数据量级）比描述技术细节更重要。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conversation 3 -->
+      <div class="card" style="margin-bottom:16px">
+        <div class="card-header">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="score-badge score-good">0.78</div>
+            <div>
+              <h3>自动生成接口测试用例</h3>
+              <div style="font-size:12px;color:var(--gray-500);margin-top:2px">王五 · Codex · 2026-06-04 10:15 · 6 轮对话</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <span class="tag tag-success">🏅 优秀</span>
+            <span class="tag tag-business">OA</span>
+            <span class="tag tag-phase">测试</span>
+            <button class="btn btn-sm btn-success">👍 点赞</button>
+            <button class="btn btn-sm">🔗 分享</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div style="display:flex;gap:24px;margin-bottom:16px;padding:12px;background:var(--gray-50);border-radius:var(--radius)">
+            <div style="text-align:center"><div style="font-size:18px;font-weight:700;color:var(--primary)">3.8</div><div style="font-size:11px;color:var(--gray-500)">问题质量</div></div>
+            <div style="text-align:center"><div style="font-size:18px;font-weight:700;color:var(--primary)">4.0</div><div style="font-size:11px;color:var(--gray-500)">回答质量</div></div>
+            <div style="text-align:center"><div style="font-size:18px;font-weight:700;color:var(--primary)">4.2</div><div style="font-size:11px;color:var(--gray-500)">过程质量</div></div>
+            <div style="text-align:center"><div style="font-size:18px;font-weight:700;color:var(--success)">4.0</div><div style="font-size:11px;color:var(--gray-500)">可复用性</div></div>
+            <div style="text-align:center"><div style="font-size:18px;font-weight:700;color:var(--info)">3.5</div><div style="font-size:11px;color:var(--gray-500)">教育价值</div></div>
+          </div>
+          <div style="background:var(--info-light);border:1px solid #BFDBFE;border-radius:var(--radius);padding:14px">
+            <div style="font-weight:600;color:var(--info);margin-bottom:6px;font-size:13px">🤖 AI 分析</div>
+            <div style="font-size:13px;color:var(--gray-700);line-height:1.8">
+              <strong>亮点：Skill + 知识库联动</strong><br>
+              王五使用了团队 Skill <code>gen-test-case</code>，并引用了知识库中的 OA 审批流程文档作为上下文。
+              AI 生成了覆盖正常流程、边界条件和异常场景的完整测试用例集，直接可用于测试执行。
+              <br><strong>可学到的技巧：</strong>在测试用例生成时，主动引用业务文档作为上下文能显著提高覆盖度。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pattern Recognition Section -->
+      <div class="card" style="margin-top:24px">
+        <div class="card-header">
+          <h3>🧩 模式识别 — 本周发现的 AI 使用模式</h3>
+        </div>
+        <div class="card-body">
+          <div class="grid-3">
+            <div style="padding:16px;background:var(--success-light);border-radius:var(--radius);border:1px solid #BBF7D0">
+              <div style="font-size:13px;font-weight:600;color:#065F46;margin-bottom:8px">✅ 成功模式</div>
+              <div style="font-size:12px;color:#065F46;line-height:1.7">
+                <strong>渐进式 Prompt</strong><br>
+                分步引导 > 一次性抛出所有需求<br>
+                成功率提升 35%<br><br>
+                <strong>约束前置</strong><br>
+                先列业务约束再描述需求<br>
+                减少 AI 误解率 28%
+              </div>
+            </div>
+            <div style="padding:16px;background:var(--danger-light);border-radius:var(--radius);border:1px solid #FECACA">
+              <div style="font-size:13px;font-weight:600;color:#991B1B;margin-bottom:8px">❌ 失败模式</div>
+              <div style="font-size:12px;color:#991B1B;line-height:1.7">
+                <strong>模糊描述</strong><br>
+                "帮我改一下这个功能" 类 prompt<br>
+                平均需要 6+ 轮才能完成<br><br>
+                <strong>缺乏上下文</strong><br>
+                未引用知识库文档<br>
+                AI 回复偏离业务实际 42%
+              </div>
+            </div>
+            <div style="padding:16px;background:var(--warning-light);border-radius:var(--radius);border:1px solid #FDE68A">
+              <div style="font-size:13px;font-weight:600;color:#92400E;margin-bottom:8px">📈 趋势洞察</div>
+              <div style="font-size:12px;color:#92400E;line-height:1.7">
+                <strong>高频话题</strong><br>
+                1. 权限系统重构 (23次)<br>
+                2. 数据迁移方案 (18次)<br>
+                3. 消息队列接入 (12次)<br><br>
+                <strong>Skill 缺口</strong><br>
+                "消息队列接入" 尚无对应 Skill<br>
+                已生成孵化提案 →
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Space - AI 优化提案</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><div class="logo-icon">T</div><div><div class="logo-text">Team Space</div><div class="logo-sub">AI 协作平台</div></div></div>
+    <nav class="sidebar-nav">
+      <div class="nav-section"><div class="nav-section-title">概览</div><a class="nav-item" href="dashboard.html"><span class="nav-icon">📊</span> 仪表盘</a></div>
+      <div class="nav-section">
+        <div class="nav-section-title">知识资产</div>
+        <a class="nav-item" href="knowledge.html"><span class="nav-icon">📚</span> 知识库<span class="nav-badge">32</span></a>
+        <a class="nav-item" href="skills.html"><span class="nav-icon">⚡</span> 技能<span class="nav-badge">18</span></a>
+        <a class="nav-item" href="tools.html"><span class="nav-icon">🔧</span> 工具</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">对话分析</div><a class="nav-item" href="conversations.html"><span class="nav-icon">💬</span> 对话记录</a><a class="nav-item" href="analytics.html"><span class="nav-icon">🏆</span> 优秀对话<span class="nav-badge">3</span></a></div>
+      <div class="nav-section"><div class="nav-section-title">AI 优化</div><a class="nav-item active" href="optimization.html"><span class="nav-icon">🤖</span> 优化提案<span class="nav-badge">2</span></a><a class="nav-item" href="audit-log.html"><span class="nav-icon">📋</span> 审计日志</a></div>
+      <div class="nav-section"><div class="nav-section-title">设置</div><a class="nav-item" href="local-config.html"><span class="nav-icon">⚙️</span> 本地配置</a><a class="nav-item" href="settings.html"><span class="nav-icon">🏷️</span> 标签管理</a></div>
+    </nav>
+    <div class="sidebar-footer"><div class="avatar" style="background:#6366F1">张</div><div class="user-info"><div class="user-name">张三</div><div class="user-role">后端工程师</div></div></div>
+  </aside>
+
+  <main class="main-content">
+    <div class="page-header">
+      <div>
+        <h1>🤖 AI 优化提案</h1>
+        <div class="subtitle">AI 分析对话后生成的改进建议 · 低风险自动执行，中高风险等待审批</div>
+      </div>
+      <div class="header-actions">
+        <button class="btn">🔄 手动触发分析</button>
+        <button class="btn btn-primary">📊 效果报告</button>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <!-- Risk Level Legend -->
+      <div style="display:flex;gap:16px;margin-bottom:20px;padding:12px 16px;background:white;border:1px solid var(--gray-200);border-radius:var(--radius-lg)">
+        <span style="font-size:12px;font-weight:600;color:var(--gray-600)">变更风险：</span>
+        <span style="font-size:12px;color:var(--gray-600)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--success);margin-right:4px"></span>低风险 — 自动执行（措辞微调、新增示例）</span>
+        <span style="font-size:12px;color:var(--gray-600)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--warning);margin-right:4px"></span>中风险 — 需 1 人审批（结构调整、格式变更）</span>
+        <span style="font-size:12px;color:var(--gray-600)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--danger);margin-right:4px"></span>高风险 — 需 2 人审批 + 测试（权限变更、删除）</span>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">待审批提案</div>
+          <div class="stat-value" style="color:var(--warning)">2</div>
+          <div class="stat-change">需要人工确认</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">本周自动执行</div>
+          <div class="stat-value">7</div>
+          <div class="stat-change up">全部成功</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">灰度测试中</div>
+          <div class="stat-value">1</div>
+          <div class="stat-change" style="color:var(--info)">A/B 对比运行中</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">已回滚</div>
+          <div class="stat-value">1</div>
+          <div class="stat-change down">code-review-checker v1.5</div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <span class="tab active">⏳ 待审批 (2)</span>
+        <span class="tab">🧪 灰度测试 (1)</span>
+        <span class="tab">✅ 已执行</span>
+        <span class="tab">↩️ 已回滚</span>
+        <span class="tab">❌ 已拒绝</span>
+      </div>
+
+      <!-- Pending Proposal 1: Skill Optimization -->
+      <div class="card" style="margin-bottom:16px;border:2px solid var(--warning)">
+        <div class="card-header" style="background:var(--warning-light)">
+          <div style="display:flex;align-items:center;gap:12px">
+            <span style="font-size:24px">⚡</span>
+            <div>
+              <h3>Skill 优化：<code>gen-test-case</code> Prompt 结构重组</h3>
+              <div style="font-size:12px;color:var(--gray-500);margin-top:2px">
+                <span class="tag tag-warning">🟡 中风险</span>
+                <span class="tag tag-primary">Prompt 蒸馏</span>
+                · AI 生成于 2026-06-05 02:10
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px">
+            <button class="btn btn-sm btn-success">✅ 批准</button>
+            <button class="btn btn-sm btn-danger">❌ 拒绝</button>
+            <button class="btn btn-sm">✏️ 修改后批准</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <!-- Rationale -->
+          <div style="margin-bottom:16px">
+            <h4 style="font-size:13px;font-weight:600;margin-bottom:8px;color:var(--gray-700)">📋 优化理由</h4>
+            <div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius);padding:14px;font-size:13px;line-height:1.8">
+              <strong>问题发现：</strong><code>gen-test-case</code> 近 7 天成功率从 85% 下降至 76%，满意度从 4.2 降至 3.8。<br><br>
+              <strong>根因分析：</strong>分析了 21 次使用记录，发现 5 次失败案例的共同模式——用户在生成测试用例时，
+              AI 未考虑边界条件（如空值、并发、权限校验），导致生成的用例覆盖不全。<br><br>
+              <strong>数据支撑：</strong>
+              <br>• 优秀对话 #127（王五，评分 0.78）中，用户手动追加了"请考虑边界条件"后效果显著改善
+              <br>• 对话 #89、#102、#115 均出现"遗漏边界用例"的用户反馈
+            </div>
+          </div>
+
+          <!-- Diff -->
+          <div style="margin-bottom:16px">
+            <h4 style="font-size:13px;font-weight:600;margin-bottom:8px;color:var(--gray-700)">📝 变更内容</h4>
+            <div class="diff-block">
+              <div class="diff-header">skill: gen-test-case · instructions 部分</div>
+              <div class="diff-line context">  你是一个测试用例生成专家。根据提供的 PRD 文档，</div>
+              <div class="diff-line context">  生成结构化的测试用例。</div>
+              <div class="diff-line context">  </div>
+              <div class="diff-line context">  输出格式要求：</div>
+              <div class="diff-line context">  1. 测试用例编号和标题</div>
+              <div class="diff-line context">  2. 前置条件</div>
+              <div class="diff-line context">  3. 测试步骤</div>
+              <div class="diff-line context">  4. 预期结果</div>
+              <div class="diff-line added">  5. 边界条件和异常场景（必须覆盖以下类型）：</div>
+              <div class="diff-line added">     - 空值/Null 输入</div>
+              <div class="diff-line added">     - 并发操作场景</div>
+              <div class="diff-line added">     - 权限校验（无权限用户操作）</div>
+              <div class="diff-line added">     - 数据量边界（空列表、超大数据）</div>
+              <div class="diff-line added">  </div>
+              <div class="diff-line added">  重要：每个功能点至少生成 3 个边界/异常用例。</div>
+              <div class="diff-line context">  </div>
+              <div class="diff-line context">  参考规范：{{knowledge:test-case-standard}}</div>
+            </div>
+          </div>
+
+          <!-- Impact Preview -->
+          <div>
+            <h4 style="font-size:13px;font-weight:600;margin-bottom:8px;color:var(--gray-700)">📊 预期影响</h4>
+            <div style="display:flex;gap:16px">
+              <div style="padding:10px 16px;background:var(--success-light);border-radius:var(--radius);text-align:center">
+                <div style="font-size:11px;color:var(--gray-500)">成功率</div>
+                <div style="font-size:18px;font-weight:700;color:var(--success)">76% → 85%</div>
+                <div style="font-size:11px;color:var(--success)">预期提升 +9%</div>
+              </div>
+              <div style="padding:10px 16px;background:var(--success-light);border-radius:var(--radius);text-align:center">
+                <div style="font-size:11px;color:var(--gray-500)">满意度</div>
+                <div style="font-size:18px;font-weight:700;color:var(--success)">3.8 → 4.2</div>
+                <div style="font-size:11px;color:var(--success)">预期提升 +0.4</div>
+              </div>
+              <div style="padding:10px 16px;background:var(--info-light);border-radius:var(--radius);text-align:center">
+                <div style="font-size:11px;color:var(--gray-500)">灰度策略</div>
+                <div style="font-size:14px;font-weight:600;color:var(--info)">先 30% 用户</div>
+                <div style="font-size:11px;color:var(--info)">运行 3 天后全量</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pending Proposal 2: New Skill Incubation -->
+      <div class="card" style="margin-bottom:16px;border:2px solid var(--info)">
+        <div class="card-header" style="background:var(--info-light)">
+          <div style="display:flex;align-items:center;gap:12px">
+            <span style="font-size:24px">🆕</span>
+            <div>
+              <h3>新 Skill 孵化：<code>message-queue-integration</code></h3>
+              <div style="font-size:12px;color:var(--gray-500);margin-top:2px">
+                <span class="tag tag-info">🔵 中风险</span>
+                <span class="tag tag-primary">Skill 孵化</span>
+                · AI 生成于 2026-06-05 02:05
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px">
+            <button class="btn btn-sm btn-success">✅ 批准发布</button>
+            <button class="btn btn-sm btn-danger">❌ 不需要</button>
+            <button class="btn btn-sm">✏️ 修改后发布</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div style="margin-bottom:16px">
+            <h4 style="font-size:13px;font-weight:600;margin-bottom:8px;color:var(--gray-700)">📋 孵化理由</h4>
+            <div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius);padding:14px;font-size:13px;line-height:1.8">
+              <strong>检测信号：</strong>过去 7 天内有 5 次对话涉及"消息队列接入"主题，但均未使用任何现有 Skill。<br><br>
+              <strong>涉及对话：</strong>
+              <br>• #134 — 孙七："帮我接入 RabbitMQ 消费者" (6轮, 评分 0.65)
+              <br>• #121 — 张三："Kafka 生产者配置" (4轮, 评分 0.72)
+              <br>• #118 — 李四："消息队列幂等处理" (8轮, 评分 0.68)
+              <br>• #109 — 王五："死信队列配置" (5轮, 评分 0.60)
+              <br>• #97 — 赵六："消息重试策略" (7轮, 评分 0.71)
+              <br><br>
+              <strong>其中 2 次获得较高满意度（#121 和 #97），说明该场景有明确的 Skill 价值。</strong>
+            </div>
+          </div>
+
+          <div style="margin-bottom:16px">
+            <h4 style="font-size:13px;font-weight:600;margin-bottom:8px;color:var(--gray-700)">📝 AI 生成的 Skill 草案</h4>
+            <div class="diff-block">
+              <div class="diff-header">skill.yaml — message-queue-integration (NEW)</div>
+              <div class="diff-line added">name: message-queue-integration</div>
+              <div class="diff-line added">version: 0.1.0</div>
+              <div class="diff-line added">description: 消息队列接入指南（RabbitMQ/Kafka）</div>
+              <div class="diff-line added">tags:</div>
+              <div class="diff-line added">  phase: [开发]</div>
+              <div class="diff-line added">trigger_keywords:</div>
+              <div class="diff-line added">  - "接入消息队列"</div>
+              <div class="diff-line added">  - "RabbitMQ"</div>
+              <div class="diff-line added">  - "Kafka"</div>
+              <div class="diff-line added">  - "消息队列"</div>
+              <div class="diff-line added">  - "死信队列"</div>
+              <div class="diff-line added"></div>
+              <div class="diff-line added">instructions: |</div>
+              <div class="diff-line added">  你是消息队列接入专家。根据用户需求，生成完整的</div>
+              <div class="diff-line added">  消息队列接入方案，必须包含：</div>
+              <div class="diff-line added">  1. 生产者/消费者配置</div>
+              <div class="diff-line added">  2. 消息格式定义</div>
+              <div class="diff-line added">  3. 幂等处理方案</div>
+              <div class="diff-line added">  4. 死信队列和重试策略</div>
+              <div class="diff-line added">  5. 监控和告警配置</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Currently A/B Testing -->
+      <div class="card" style="margin-bottom:16px">
+        <div class="card-header">
+          <h3>🧪 灰度测试中</h3>
+        </div>
+        <div class="card-body">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px">
+            <div style="flex:1">
+              <div style="font-size:14px;font-weight:600;color:var(--gray-800)">Skill: <code>write-unit-test</code> v2.2.0-beta</div>
+              <div style="font-size:12px;color:var(--gray-500);margin-top:2px">新增 TypeScript 测试模板支持 · 已运行 2 天</div>
+            </div>
+            <span class="tag tag-info">A/B 测试中</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+            <div style="padding:14px;background:var(--gray-50);border-radius:var(--radius);border:1px solid var(--gray-200)">
+              <div style="font-size:12px;font-weight:600;color:var(--gray-600);margin-bottom:8px">🅰️ 旧版本 v2.1.0（80% 用户）</div>
+              <div style="display:flex;gap:16px;font-size:13px">
+                <div>成功率: <strong>88%</strong></div>
+                <div>满意度: <strong>4.3</strong></div>
+                <div>使用: <strong>28</strong> 次</div>
+              </div>
+            </div>
+            <div style="padding:14px;background:var(--success-light);border-radius:var(--radius);border:1px solid #BBF7D0">
+              <div style="font-size:12px;font-weight:600;color:#065F46;margin-bottom:8px">🅱️ 新版本 v2.2.0-beta（20% 用户）</div>
+              <div style="display:flex;gap:16px;font-size:13px">
+                <div>成功率: <strong style="color:var(--success)">93%</strong> ↑</div>
+                <div>满意度: <strong style="color:var(--success)">4.6</strong> ↑</div>
+                <div>使用: <strong>7</strong> 次</div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:12px;text-align:center;font-size:12px;color:var(--gray-500)">
+            📅 预计 1 天后完成测试 · 新版本表现良好，预计自动全量发布
+          </div>
+        </div>
+      </div>
+
+      <!-- Auto-Applied Today -->
+      <div class="card">
+        <div class="card-header">
+          <h3>✅ 今日自动执行的优化（低风险）</h3>
+          <span class="tag tag-success">7 项全部成功</span>
+        </div>
+        <div class="card-body-compact">
+          <table>
+            <thead>
+              <tr>
+                <th>优化内容</th>
+                <th>类型</th>
+                <th>目标</th>
+                <th>执行时间</th>
+                <th>效果</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="cell-main">generate-api-doc: 新增触发关键词</div>
+                  <div class="cell-sub">添加了 "接口文档"、"swagger" 关键词</div>
+                </td>
+                <td><span class="tag tag-primary">触发词扩展</span></td>
+                <td><code style="font-size:11px">generate-api-doc</code></td>
+                <td style="font-size:12px;color:var(--gray-500)">02:15</td>
+                <td><span class="tag tag-success">+3 触发</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="cell-main">db-query-analysis: 新增 few-shot 示例</div>
+                  <div class="cell-sub">从对话 #142 提取的复杂查询示例</div>
+                </td>
+                <td><span class="tag tag-primary">示例蒸馏</span></td>
+                <td><code style="font-size:11px">db-query-analysis</code></td>
+                <td style="font-size:12px;color:var(--gray-500)">02:12</td>
+                <td><span class="tag tag-success">待观察</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="cell-main">write-unit-test: Prompt 措辞微调</div>
+                  <div class="cell-sub">"生成测试" → "生成符合 AAA 模式的单元测试"</div>
+                </td>
+                <td><span class="tag tag-primary">措辞优化</span></td>
+                <td><code style="font-size:11px">write-unit-test</code></td>
+                <td style="font-size:12px;color:var(--gray-500)">02:10</td>
+                <td><span class="tag tag-success">待观察</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="cell-main">code-review-checker: 新增触发关键词</div>
+                  <div class="cell-sub">添加了 "代码检查"、"lint" 关键词</div>
+                </td>
+                <td><span class="tag tag-primary">触发词扩展</span></td>
+                <td><code style="font-size:11px">code-review-checker</code></td>
+                <td style="font-size:12px;color:var(--gray-500)">02:08</td>
+                <td><span class="tag tag-success">+1 触发</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

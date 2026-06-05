@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Space - 工具注册表</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><div class="logo-icon">T</div><div><div class="logo-text">Team Space</div><div class="logo-sub">AI 协作平台</div></div></div>
+    <nav class="sidebar-nav">
+      <div class="nav-section"><div class="nav-section-title">概览</div><a class="nav-item" href="dashboard.html"><span class="nav-icon">📊</span> 仪表盘</a></div>
+      <div class="nav-section">
+        <div class="nav-section-title">知识资产</div>
+        <a class="nav-item" href="knowledge.html"><span class="nav-icon">📚</span> 知识库<span class="nav-badge">32</span></a>
+        <a class="nav-item" href="skills.html"><span class="nav-icon">⚡</span> 技能<span class="nav-badge">18</span></a>
+        <a class="nav-item active" href="tools.html"><span class="nav-icon">🔧</span> 工具</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">对话分析</div><a class="nav-item" href="conversations.html"><span class="nav-icon">💬</span> 对话记录</a><a class="nav-item" href="analytics.html"><span class="nav-icon">🏆</span> 优秀对话<span class="nav-badge">3</span></a></div>
+      <div class="nav-section"><div class="nav-section-title">AI 优化</div><a class="nav-item" href="optimization.html"><span class="nav-icon">🤖</span> 优化提案<span class="nav-badge">2</span></a><a class="nav-item" href="audit-log.html"><span class="nav-icon">📋</span> 审计日志</a></div>
+      <div class="nav-section"><div class="nav-section-title">设置</div><a class="nav-item" href="local-config.html"><span class="nav-icon">⚙️</span> 本地配置</a><a class="nav-item" href="settings.html"><span class="nav-icon">🏷️</span> 标签管理</a></div>
+    </nav>
+    <div class="sidebar-footer"><div class="avatar" style="background:#6366F1">张</div><div class="user-info"><div class="user-name">张三</div><div class="user-role">后端工程师</div></div></div>
+  </aside>
+
+  <main class="main-content">
+    <div class="page-header">
+      <div>
+        <h1>🔧 工具注册表</h1>
+        <div class="subtitle">让 AI 具备「做事」能力的 MCP Server 与自定义工具 · 12 个工具已注册</div>
+      </div>
+      <div class="header-actions">
+        <div class="search-box"><span>🔍</span><input type="text" placeholder="搜索工具..."></div>
+        <button class="btn btn-primary">＋ 注册工具</button>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <!-- Permission Level Legend -->
+      <div style="display:flex;gap:16px;margin-bottom:20px;padding:12px 16px;background:white;border:1px solid var(--gray-200);border-radius:var(--radius-lg)">
+        <span style="font-size:12px;font-weight:600;color:var(--gray-600)">权限级别：</span>
+        <span style="font-size:12px;color:var(--gray-600)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--success);margin-right:4px"></span>Safe — 只读、无副作用、无需审批</span>
+        <span style="font-size:12px;color:var(--gray-600)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--warning);margin-right:4px"></span>Caution — 有写入、需通知团队</span>
+        <span style="font-size:12px;color:var(--gray-600)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--danger);margin-right:4px"></span>Dangerous — 不可逆、需人工确认</span>
+      </div>
+
+      <!-- Filter -->
+      <div class="filter-bar">
+        <span class="filter-chip active">全部</span>
+        <span class="filter-chip">🟢 Safe</span>
+        <span class="filter-chip">🟡 Caution</span>
+        <span class="filter-chip">🔴 Dangerous</span>
+        <span style="margin-left:12px" class="filter-chip">MCP Server</span>
+        <span class="filter-chip">自定义脚本</span>
+        <span class="filter-chip">API 封装</span>
+      </div>
+
+      <!-- Tools Table -->
+      <div class="card">
+        <div class="card-body-compact">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:28%">工具名称</th>
+                <th>类型</th>
+                <th>权限级别</th>
+                <th>标签</th>
+                <th>依赖本地配置</th>
+                <th>使用次数</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="cell-main" style="display:flex;align-items:center;gap:8px">
+                    <span style="font-size:18px">🗄️</span>
+                    <div>
+                      <span style="color:var(--primary);cursor:pointer">db-query-readonly</span>
+                      <div class="cell-sub">只读查询生产数据库（OA 业务库）</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="tag tag-gray">MCP Server</span></td>
+                <td><span class="tag tag-success">🟢 Safe</span></td>
+                <td>
+                  <span class="tag tag-business">OA</span>
+                  <span class="tag tag-phase">开发</span>
+                </td>
+                <td>
+                  <div style="font-size:12px">
+                    <code style="background:var(--gray-100);padding:1px 5px;border-radius:3px;font-size:11px">db_readonly_url</code>
+                    <span style="color:var(--success);margin-left:4px">✓ 已配置</span>
+                  </div>
+                </td>
+                <td><strong>156</strong></td>
+                <td>
+                  <button class="btn btn-sm">详情</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="cell-main" style="display:flex;align-items:center;gap:8px">
+                    <span style="font-size:18px">📂</span>
+                    <div>
+                      <span style="color:var(--primary);cursor:pointer">gitlab-repo-reader</span>
+                      <div class="cell-sub">读取 GitLab 仓库文件和目录</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="tag tag-gray">MCP Server</span></td>
+                <td><span class="tag tag-success">🟢 Safe</span></td>
+                <td>
+                  <span class="tag tag-phase">开发</span>
+                </td>
+                <td>
+                  <div style="font-size:12px">
+                    <code style="background:var(--gray-100);padding:1px 5px;border-radius:3px;font-size:11px">gitlab_token</code>
+                    <span style="color:var(--success);margin-left:4px">✓ 已配置</span>
+                  </div>
+                </td>
+                <td><strong>89</strong></td>
+                <td>
+                  <button class="btn btn-sm">详情</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="cell-main" style="display:flex;align-items:center;gap:8px">
+                    <span style="font-size:18px">📝</span>
+                    <div>
+                      <span style="color:var(--primary);cursor:pointer">jira-issue-creator</span>
+                      <div class="cell-sub">在 Jira 创建和更新 Issue</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="tag tag-primary">MCP Server</span></td>
+                <td><span class="tag tag-warning">🟡 Caution</span></td>
+                <td>
+                  <span class="tag tag-phase">开发</span>
+                  <span class="tag tag-phase">发布</span>
+                </td>
+                <td>
+                  <div style="font-size:12px">
+                    <code style="background:var(--gray-100);padding:1px 5px;border-radius:3px;font-size:11px">jira_api_token</code>
+                    <span style="color:var(--success);margin-left:4px">✓ 已配置</span>
+                  </div>
+                </td>
+                <td><strong>43</strong></td>
+                <td>
+                  <button class="btn btn-sm">详情</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="cell-main" style="display:flex;align-items:center;gap:8px">
+                    <span style="font-size:18px">🚀</span>
+                    <div>
+                      <span style="color:var(--primary);cursor:pointer">deploy-trigger</span>
+                      <div class="cell-sub">触发 CI/CD 部署流水线</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="tag tag-danger">自定义脚本</span></td>
+                <td><span class="tag tag-danger">🔴 Dangerous</span></td>
+                <td>
+                  <span class="tag tag-phase">发布</span>
+                </td>
+                <td>
+                  <div style="font-size:12px">
+                    <code style="background:var(--gray-100);padding:1px 5px;border-radius:3px;font-size:11px">deploy_token</code>
+                    <span style="color:var(--danger);margin-left:4px">✗ 未配置</span>
+                  </div>
+                </td>
+                <td><strong>7</strong></td>
+                <td>
+                  <button class="btn btn-sm">详情</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="cell-main" style="display:flex;align-items:center;gap:8px">
+                    <span style="font-size:18px">🔍</span>
+                    <div>
+                      <span style="color:var(--primary);cursor:pointer">internal-api-user-query</span>
+                      <div class="cell-sub">查询内部用户信息 API</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="tag tag-info">API 封装</span></td>
+                <td><span class="tag tag-success">🟢 Safe</span></td>
+                <td>
+                  <span class="tag tag-business">OA</span>
+                  <span class="tag tag-business">CRM</span>
+                </td>
+                <td>
+                  <div style="font-size:12px">
+                    <code style="background:var(--gray-100);padding:1px 5px;border-radius:3px;font-size:11px">internal_api_key</code>
+                    <span style="color:var(--success);margin-left:4px">✓ 已配置</span>
+                  </div>
+                </td>
+                <td><strong>67</strong></td>
+                <td>
+                  <button class="btn btn-sm">详情</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Tool Detail Modal Preview -->
+      <div style="margin-top:24px">
+        <h3 style="font-size:15px;font-weight:600;margin-bottom:12px;color:var(--gray-700)">📌 工具详情预览 — db-query-readonly</h3>
+        <div class="card">
+          <div class="card-body">
+            <div class="grid-2">
+              <div>
+                <h4 style="font-size:13px;font-weight:600;margin-bottom:8px">基本信息</h4>
+                <table style="font-size:13px">
+                  <tr><td style="color:var(--gray-500);padding:4px 16px 4px 0;width:100px">名称</td><td style="padding:4px 0"><strong>db-query-readonly</strong></td></tr>
+                  <tr><td style="color:var(--gray-500);padding:4px 16px 4px 0">版本</td><td style="padding:4px 0">v1.0.0</td></tr>
+                  <tr><td style="color:var(--gray-500);padding:4px 16px 4px 0">作者</td><td style="padding:4px 0">李四</td></tr>
+                  <tr><td style="color:var(--gray-500);padding:4px 16px 4px 0">权限级别</td><td style="padding:4px 0"><span class="tag tag-success">🟢 Safe</span></td></tr>
+                  <tr><td style="color:var(--gray-500);padding:4px 16px 4px 0">审批要求</td><td style="padding:4px 0">无需审批</td></tr>
+                </table>
+              </div>
+              <div>
+                <h4 style="font-size:13px;font-weight:600;margin-bottom:8px">安全约束</h4>
+                <div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius);padding:12px;font-family:var(--font-mono);font-size:12px;line-height:1.8">
+                  <div><span style="color:var(--gray-500)">read_only:</span> <span style="color:var(--success)">true</span></div>
+                  <div><span style="color:var(--gray-500)">max_rows:</span> 1000</div>
+                  <div><span style="color:var(--gray-500)">allowed_tables:</span> ["users", "orders", "departments"]</div>
+                  <div><span style="color:var(--gray-500)">blocked_operations:</span> ["DROP", "DELETE", "UPDATE", "INSERT"]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

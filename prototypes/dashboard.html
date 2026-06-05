@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Space - 仪表盘</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<div class="app-layout">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon">T</div>
+      <div>
+        <div class="logo-text">Team Space</div>
+        <div class="logo-sub">AI 协作平台</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-section-title">概览</div>
+        <a class="nav-item active" href="dashboard.html">
+          <span class="nav-icon">📊</span> 仪表盘
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">知识资产</div>
+        <a class="nav-item" href="knowledge.html">
+          <span class="nav-icon">📚</span> 知识库
+          <span class="nav-badge">32</span>
+        </a>
+        <a class="nav-item" href="skills.html">
+          <span class="nav-icon">⚡</span> 技能
+          <span class="nav-badge">18</span>
+        </a>
+        <a class="nav-item" href="tools.html">
+          <span class="nav-icon">🔧</span> 工具
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">对话分析</div>
+        <a class="nav-item" href="conversations.html">
+          <span class="nav-icon">💬</span> 对话记录
+        </a>
+        <a class="nav-item" href="analytics.html">
+          <span class="nav-icon">🏆</span> 优秀对话
+          <span class="nav-badge">3</span>
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">AI 优化</div>
+        <a class="nav-item" href="optimization.html">
+          <span class="nav-icon">🤖</span> 优化提案
+          <span class="nav-badge">2</span>
+        </a>
+        <a class="nav-item" href="audit-log.html">
+          <span class="nav-icon">📋</span> 审计日志
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">设置</div>
+        <a class="nav-item" href="local-config.html">
+          <span class="nav-icon">⚙️</span> 本地配置
+        </a>
+        <a class="nav-item" href="settings.html">
+          <span class="nav-icon">🏷️</span> 标签管理
+        </a>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="avatar" style="background:#6366F1">张</div>
+      <div class="user-info">
+        <div class="user-name">张三</div>
+        <div class="user-role">后端工程师</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main-content">
+    <div class="page-header">
+      <div>
+        <h1>仪表盘</h1>
+        <div class="subtitle">团队 AI 协作概览 · 数据更新于 2026-06-05 09:30</div>
+      </div>
+      <div class="header-actions">
+        <div class="search-box">
+          <span>🔍</span>
+          <input type="text" placeholder="搜索知识、技能、对话...">
+        </div>
+        <button class="btn btn-primary">＋ 新建</button>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">今日对话</div>
+          <div class="stat-value">127</div>
+          <div class="stat-change up">↑ 23% 较昨日</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">活跃成员</div>
+          <div class="stat-value">8<span style="font-size:16px;color:var(--gray-400);margin-left:2px">/12</span></div>
+          <div class="stat-change up">↑ 2 人较昨日</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Skill 平均成功率</div>
+          <div class="stat-value">87%</div>
+          <div class="stat-change up">↑ 3% 较上周</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">知识库文档</div>
+          <div class="stat-value">32</div>
+          <div class="stat-change">本周新增 3 篇</div>
+        </div>
+      </div>
+
+      <!-- Two Column Layout -->
+      <div class="grid-2" style="margin-bottom:24px">
+        <!-- 今日优秀对话 -->
+        <div class="card">
+          <div class="card-header">
+            <h3>🏆 今日优秀对话</h3>
+            <a href="analytics.html" class="btn btn-sm btn-ghost">查看全部 →</a>
+          </div>
+          <div class="card-body-compact">
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="score-badge score-excellent">0.92</div>
+                  </td>
+                  <td>
+                    <div class="cell-main">用 Claude Code 重构用户权限模块</div>
+                    <div class="cell-sub">张三 · Cursor · 12 轮对话</div>
+                  </td>
+                  <td>
+                    <span class="tag tag-business">OA</span>
+                    <span class="tag tag-phase">开发</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="score-badge score-good">0.81</div>
+                  </td>
+                  <td>
+                    <div class="cell-main">生成 CRM 数据迁移方案</div>
+                    <div class="cell-sub">李四 · Claude Code · 8 轮对话</div>
+                  </td>
+                  <td>
+                    <span class="tag tag-business">销售CRM</span>
+                    <span class="tag tag-phase">开发</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="score-badge score-good">0.78</div>
+                  </td>
+                  <td>
+                    <div class="cell-main">自动生成接口测试用例</div>
+                    <div class="cell-sub">王五 · Codex · 6 轮对话</div>
+                  </td>
+                  <td>
+                    <span class="tag tag-business">OA</span>
+                    <span class="tag tag-phase">测试</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- AI 优化动态 -->
+        <div class="card">
+          <div class="card-header">
+            <h3>🤖 AI 优化动态</h3>
+            <a href="optimization.html" class="btn btn-sm btn-ghost">查看全部 →</a>
+          </div>
+          <div class="card-body">
+            <div class="timeline-item">
+              <div class="timeline-dot" style="background:var(--success)"></div>
+              <div class="timeline-content">
+                <div class="tl-title">Skill <code>generate-api-doc</code> 已自动优化</div>
+                <div class="tl-desc">Prompt 措辞微调：增加了"标注权限要求"的指令</div>
+                <div class="tl-time">今天 02:15 · 自动执行</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot" style="background:var(--warning)"></div>
+              <div class="timeline-content">
+                <div class="tl-title">新 Skill 孵化提案：<code>message-queue-integration</code></div>
+                <div class="tl-desc">近 7 天 5 次对话涉及消息队列接入，建议新建 Skill</div>
+                <div class="tl-time">今天 02:10 · 待审核</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot" style="background:var(--info)"></div>
+              <div class="timeline-content">
+                <div class="tl-title">知识库补全建议：OA 审批流程 v4</div>
+                <div class="tl-desc">对话中发现审批流程文档可能已过时，建议更新</div>
+                <div class="tl-time">今天 02:05 · 待审核</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot" style="background:var(--gray-400)"></div>
+              <div class="timeline-content">
+                <div class="tl-title">Skill <code>code-review-checker</code> 回滚</div>
+                <div class="tl-desc">新版本成功率下降 18%，已自动回滚到 v1.3.0</div>
+                <div class="tl-time">昨天 14:30 · 自动回滚</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Section -->
+      <div class="grid-2">
+        <!-- 热门 Skill -->
+        <div class="card">
+          <div class="card-header">
+            <h3>⚡ 热门 Skill（本周）</h3>
+            <a href="skills.html" class="btn btn-sm btn-ghost">查看全部 →</a>
+          </div>
+          <div class="card-body-compact">
+            <table>
+              <thead>
+                <tr>
+                  <th>技能名称</th>
+                  <th>使用次数</th>
+                  <th>成功率</th>
+                  <th>满意度</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="cell-main">generate-api-doc</div>
+                    <div class="cell-sub">根据代码生成 API 文档</div>
+                  </td>
+                  <td><strong>47</strong></td>
+                  <td>
+                    <div style="display:flex;align-items:center;gap:8px">
+                      <div class="progress-bar" style="width:80px"><div class="progress-fill green" style="width:92%"></div></div>
+                      <span style="font-size:12px;color:var(--gray-600)">92%</span>
+                    </div>
+                  </td>
+                  <td>⭐ 4.5</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="cell-main">write-unit-test</div>
+                    <div class="cell-sub">自动生成单元测试</div>
+                  </td>
+                  <td><strong>35</strong></td>
+                  <td>
+                    <div style="display:flex;align-items:center;gap:8px">
+                      <div class="progress-bar" style="width:80px"><div class="progress-fill green" style="width:88%"></div></div>
+                      <span style="font-size:12px;color:var(--gray-600)">88%</span>
+                    </div>
+                  </td>
+                  <td>⭐ 4.3</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="cell-main">db-query-analysis</div>
+                    <div class="cell-sub">数据库查询与数据分析</div>
+                  </td>
+                  <td><strong>28</strong></td>
+                  <td>
+                    <div style="display:flex;align-items:center;gap:8px">
+                      <div class="progress-bar" style="width:80px"><div class="progress-fill green" style="width:85%"></div></div>
+                      <span style="font-size:12px;color:var(--gray-600)">85%</span>
+                    </div>
+                  </td>
+                  <td>⭐ 4.1</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="cell-main">gen-test-case</div>
+                    <div class="cell-sub">从 PRD 生成测试用例</div>
+                  </td>
+                  <td><strong>21</strong></td>
+                  <td>
+                    <div style="display:flex;align-items:center;gap:8px">
+                      <div class="progress-bar" style="width:80px"><div class="progress-fill orange" style="width:76%"></div></div>
+                      <span style="font-size:12px;color:var(--gray-600)">76%</span>
+                    </div>
+                  </td>
+                  <td>⭐ 3.8</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 最近更新的文档 -->
+        <div class="card">
+          <div class="card-header">
+            <h3>📚 最近更新的知识文档</h3>
+            <a href="knowledge.html" class="btn btn-sm btn-ghost">查看全部 →</a>
+          </div>
+          <div class="card-body-compact">
+            <table>
+              <thead>
+                <tr>
+                  <th>文档标题</th>
+                  <th>标签</th>
+                  <th>更新时间</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="cell-main">CRM 客户跟进流程 PRD v3</div>
+                    <div class="cell-sub">李四</div>
+                  </td>
+                  <td>
+                    <span class="tag tag-business">销售CRM</span>
+                    <span class="tag tag-phase">需求分析</span>
+                  </td>
+                  <td style="font-size:12px;color:var(--gray-500)">2 小时前</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="cell-main">OA 审批引擎技术方案</div>
+                    <div class="cell-sub">张三</div>
+                  </td>
+                  <td>
+                    <span class="tag tag-business">OA</span>
+                    <span class="tag tag-phase">开发</span>
+                  </td>
+                  <td style="font-size:12px;color:var(--gray-500)">昨天</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="cell-main">统一权限模型设计</div>
+                    <div class="cell-sub">王五</div>
+                  </td>
+                  <td>
+                    <span class="tag tag-business">OA</span>
+                    <span class="tag tag-business">CRM</span>
+                    <span class="tag tag-phase">开发</span>
+                  </td>
+                  <td style="font-size:12px;color:var(--gray-500)">3 天前</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="cell-main">Code Review Checklist 2026</div>
+                    <div class="cell-sub">赵六</div>
+                  </td>
+                  <td>
+                    <span class="tag tag-phase">开发</span>
+                  </td>
+                  <td style="font-size:12px;color:var(--gray-500)">3 天前</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

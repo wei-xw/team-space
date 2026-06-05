@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Space - 知识库</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo"><div class="logo-icon">T</div><div><div class="logo-text">Team Space</div><div class="logo-sub">AI 协作平台</div></div></div>
+    <nav class="sidebar-nav">
+      <div class="nav-section"><div class="nav-section-title">概览</div><a class="nav-item" href="dashboard.html"><span class="nav-icon">📊</span> 仪表盘</a></div>
+      <div class="nav-section">
+        <div class="nav-section-title">知识资产</div>
+        <a class="nav-item active" href="knowledge.html"><span class="nav-icon">📚</span> 知识库<span class="nav-badge">32</span></a>
+        <a class="nav-item" href="skills.html"><span class="nav-icon">⚡</span> 技能<span class="nav-badge">18</span></a>
+        <a class="nav-item" href="tools.html"><span class="nav-icon">🔧</span> 工具</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">对话分析</div><a class="nav-item" href="conversations.html"><span class="nav-icon">💬</span> 对话记录</a><a class="nav-item" href="analytics.html"><span class="nav-icon">🏆</span> 优秀对话<span class="nav-badge">3</span></a></div>
+      <div class="nav-section"><div class="nav-section-title">AI 优化</div><a class="nav-item" href="optimization.html"><span class="nav-icon">🤖</span> 优化提案<span class="nav-badge">2</span></a><a class="nav-item" href="audit-log.html"><span class="nav-icon">📋</span> 审计日志</a></div>
+      <div class="nav-section"><div class="nav-section-title">设置</div><a class="nav-item" href="local-config.html"><span class="nav-icon">⚙️</span> 本地配置</a><a class="nav-item" href="settings.html"><span class="nav-icon">🏷️</span> 标签管理</a></div>
+    </nav>
+    <div class="sidebar-footer"><div class="avatar" style="background:#6366F1">张</div><div class="user-info"><div class="user-name">张三</div><div class="user-role">后端工程师</div></div></div>
+  </aside>
+
+  <main class="main-content">
+    <div class="page-header">
+      <div>
+        <h1>📚 知识库</h1>
+        <div class="subtitle">团队共享的上下文中心 · 32 篇文档</div>
+      </div>
+      <div class="header-actions">
+        <div class="search-box"><span>🔍</span><input type="text" placeholder="搜索知识文档..."></div>
+        <button class="btn btn-primary">＋ 新建文档</button>
+      </div>
+    </div>
+
+    <div class="page-body">
+      <!-- Filter Bar -->
+      <div class="filter-bar">
+        <span style="font-size:12px;color:var(--gray-500);font-weight:600;margin-right:4px">业务域：</span>
+        <span class="filter-chip active">全部</span>
+        <span class="filter-chip">🏢 OA</span>
+        <span class="filter-chip">💼 销售CRM</span>
+        <span class="filter-chip">🧑‍💼 招聘系统</span>
+        <span class="filter-chip">💰 财务平台</span>
+        <span style="font-size:12px;color:var(--gray-500);font-weight:600;margin-left:12px;margin-right:4px">环节：</span>
+        <span class="filter-chip">需求分析</span>
+        <span class="filter-chip">开发</span>
+        <span class="filter-chip">测试</span>
+        <span class="filter-chip">发布</span>
+      </div>
+
+      <!-- View Toggle -->
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <div class="tabs" style="border:none;margin:0">
+          <span class="tab active">📋 列表</span>
+          <span class="tab">📐 卡片</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:12px;color:var(--gray-500)">排序：</span>
+          <select style="border:1px solid var(--gray-300);border-radius:6px;padding:4px 8px;font-size:12px;color:var(--gray-600)">
+            <option>最近更新</option>
+            <option>最多引用</option>
+            <option>创建时间</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Document List -->
+      <div class="card">
+        <div class="card-body-compact">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:40%">文档标题</th>
+                <th>类型</th>
+                <th>标签</th>
+                <th>引用次数</th>
+                <th>作者</th>
+                <th>更新时间</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="cell-main" style="color:var(--primary);cursor:pointer">CRM 客户跟进流程 PRD v3</div>
+                  <div class="cell-sub">客户全生命周期管理，含线索分配、跟进记录、转化漏斗</div>
+                </td>
+                <td><span class="tag tag-info">PRD</span></td>
+                <td>
+                  <span class="tag tag-business">销售CRM</span>
+                  <span class="tag tag-phase">需求分析</span>
+                </td>
+                <td><strong>24</strong></td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:6px">
+                    <div class="avatar-sm" style="background:#F59E0B">李</div>李四
+                  </div>
+                </td>
+                <td style="font-size:12px;color:var(--gray-500)">2 小时前</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="cell-main" style="color:var(--primary);cursor:pointer">OA 审批引擎技术方案</div>
+                  <div class="cell-sub">基于状态机的多级审批流程，支持动态条件路由</div>
+                </td>
+                <td><span class="tag tag-primary">技术方案</span></td>
+                <td>
+                  <span class="tag tag-business">OA</span>
+                  <span class="tag tag-phase">开发</span>
+                </td>
+                <td><strong>18</strong></td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:6px">
+                    <div class="avatar-sm" style="background:#6366F1">张</div>张三
+                  </div>
+                </td>
+                <td style="font-size:12px;color:var(--gray-500)">昨天</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="cell-main" style="color:var(--primary);cursor:pointer">统一权限模型设计</div>
+                  <div class="cell-sub">RBAC + ABAC 混合模型，覆盖 OA/CRM/招聘三系统</div>
+                </td>
+                <td><span class="tag tag-primary">技术方案</span></td>
+                <td>
+                  <span class="tag tag-business">OA</span>
+                  <span class="tag tag-business">CRM</span>
+                  <span class="tag tag-business">招聘</span>
+                  <span class="tag tag-phase">开发</span>
+                </td>
+                <td><strong>31</strong></td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:6px">
+                    <div class="avatar-sm" style="background:#10B981">王</div>王五
+                  </div>
+                </td>
+                <td style="font-size:12px;color:var(--gray-500)">3 天前</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="cell-main" style="color:var(--primary);cursor:pointer">Code Review Checklist 2026</div>
+                  <div class="cell-sub">代码审查规范清单，含安全、性能、可维护性检查项</div>
+                </td>
+                <td><span class="tag tag-success">项目规范</span></td>
+                <td>
+                  <span class="tag tag-phase">开发</span>
+                </td>
+                <td><strong>42</strong></td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:6px">
+                    <div class="avatar-sm" style="background:#EF4444">赵</div>赵六
+                  </div>
+                </td>
+                <td style="font-size:12px;color:var(--gray-500)">3 天前</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="cell-main" style="color:var(--primary);cursor:pointer">招聘系统 API 文档</div>
+                  <div class="cell-sub">候选人管理、面试安排、Offer 流程完整 API</div>
+                </td>
+                <td><span class="tag tag-gray">API 文档</span></td>
+                <td>
+                  <span class="tag tag-business">招聘系统</span>
+                  <span class="tag tag-phase">开发</span>
+                </td>
+                <td><strong>15</strong></td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:6px">
+                    <div class="avatar-sm" style="background:#8B5CF6">孙</div>孙七
+                  </div>
+                </td>
+                <td style="font-size:12px;color:var(--gray-500)">5 天前</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="cell-main" style="color:var(--primary);cursor:pointer">定价策略说明</div>
+                  <div class="cell-sub">CRM 产品阶梯定价规则，含折扣与续费逻辑</div>
+                </td>
+                <td><span class="tag tag-warning">业务规则</span></td>
+                <td>
+                  <span class="tag tag-business">销售CRM</span>
+                </td>
+                <td><strong>8</strong></td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:6px">
+                    <div class="avatar-sm" style="background:#F59E0B">李</div>李四
+                  </div>
+                </td>
+                <td style="font-size:12px;color:var(--gray-500)">1 周前</td>
+              </tr>
+              <tr style="background:#FFFBEB">
+                <td>
+                  <div class="cell-main" style="color:var(--primary);cursor:pointer">OA 表单引擎设计 ⚠️</div>
+                  <div class="cell-sub" style="color:var(--warning)">文档 45 天未更新，可能已过时</div>
+                </td>
+                <td><span class="tag tag-primary">技术方案</span></td>
+                <td>
+                  <span class="tag tag-business">OA</span>
+                  <span class="tag tag-phase">开发</span>
+                </td>
+                <td><strong>6</strong></td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:6px">
+                    <div class="avatar-sm" style="background:#6366F1">张</div>张三
+                  </div>
+                </td>
+                <td style="font-size:12px;color:var(--warning)">45 天前</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px">
+        <span style="font-size:12px;color:var(--gray-500)">显示 1-7 / 共 32 篇</span>
+        <div style="display:flex;gap:4px">
+          <button class="btn btn-sm" disabled>上一页</button>
+          <button class="btn btn-sm btn-primary">1</button>
+          <button class="btn btn-sm">2</button>
+          <button class="btn btn-sm">3</button>
+          <button class="btn btn-sm">下一页</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>
